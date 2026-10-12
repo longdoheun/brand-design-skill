@@ -21,8 +21,60 @@
   "counter_count": 2,
   "export_tolerance_units": 0.006,
   "leg_angle_deg": 32.005383208083494,
-  "font_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+  "lettering": "Original geometric lettering; no runtime font",
+  "stroke_note": "Shared construction stroke; e has vertical and s has width/height optical fitting.",
+  "x_height": 54.0,
+  "shared_stroke": 9.0,
+  "bowl_radius": 27.0,
+  "arch_radius": 18.0,
+  "optical_overshoot": 0.75,
+  "pair_gaps": {
+    "Re": 6.0,
+    "ep": 5.0,
+    "pr": 6.0,
+    "ri": 5.0,
+    "is": 5.0,
+    "sm": 5.0
+  },
+  "glyph_bounds": {
+    "e": [
+      71.38860950645613,
+      17.253714673009664,
+      125.38499523001431,
+      72.75
+    ],
+    "p": [
+      130.3849952300143,
+      18.0,
+      184.3849952300143,
+      96.0
+    ],
+    "r": [
+      190.3849952300143,
+      18.0,
+      226.3849952300143,
+      72.0
+    ],
+    "i": [
+      231.3849952300143,
+      0.0,
+      240.3849952300143,
+      72.0
+    ],
+    "s": [
+      245.3849952300143,
+      17.254624972538018,
+      294.3849952300143,
+      72.74979509073822
+    ],
+    "m": [
+      299.3849952300143,
+      18.0,
+      362.3849952300143,
+      72.0
+    ]
+  },
   "wordmark_height": 100.0,
   "cap_height": 72.0,
-  "design_sha256": "f830477aad598c763ff422f1127ae71ad975609ca48f9a4e603827d2a48c0a5d"
+  "design_sha256": "5e65ddedf34b802c975f703d7859a1f4a23f9ef4a62e75fbeab6f9a9706c059e"
 }

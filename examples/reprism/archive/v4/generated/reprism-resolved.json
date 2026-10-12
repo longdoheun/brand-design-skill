@@ -1,0 +1,133 @@
+{
+  "brief": {
+    "applications": [
+      {
+        "height_px": [
+          28,
+          32,
+          40
+        ],
+        "placement": "Web header",
+        "surface": "dark and light"
+      }
+    ],
+    "assumptions": [
+      "The logo expresses data-informed support; audience interpretation remains a design judgment."
+    ],
+    "audience": "People who want training assistance and data-informed improvement.",
+    "avoid": [
+      "Attached arrowhead",
+      "Literal chart or dumbbell icon",
+      "Clinical badge",
+      "Decorative 3D fold",
+      "Construction guides in production artwork"
+    ],
+    "name": "Reprism",
+    "philosophies": [
+      {
+        "id": "training-support",
+        "priority": "primary",
+        "statement": "Provide a stable reference that supports a person's training."
+      },
+      {
+        "id": "accumulated-evidence",
+        "priority": "primary",
+        "statement": "Summarize repeated records instead of reacting to one isolated observation."
+      },
+      {
+        "id": "guided-improvement",
+        "priority": "primary",
+        "statement": "Connect measured differences to an understandable next adjustment."
+      }
+    ],
+    "preserve": [
+      "Reprism spelling",
+      "Recognizable R",
+      "Mint and dark identity",
+      "See every rep clearly."
+    ],
+    "purpose": "Support exercise decisions through measured movement, accumulated records, and interpretable statistical feedback.",
+    "rules": [
+      {
+        "id": "stable-reference",
+        "statement": "Record inputs and statistical gain may change the inner trace but must leave the outer R reference unchanged.",
+        "strength": "hard"
+      },
+      {
+        "id": "traceable-summary",
+        "statement": "Use an explicitly computed statistical summary to construct the internal curve.",
+        "strength": "hard"
+      },
+      {
+        "id": "visible-comparison",
+        "statement": "Maintain at least 1px nominal trace weight and curved-lane clearance at a 28px wordmark height.",
+        "strength": "hard"
+      },
+      {
+        "id": "honest-metaphor",
+        "statement": "Label the numerical inputs as illustrative design values, without implying clinical validation or actual exercise outcomes.",
+        "strength": "hard"
+      }
+    ],
+    "slug": "reprism",
+    "typography": "Outlined Manrope 700."
+  },
+  "parameter_overrides": {},
+  "parameters": {
+    "arc_segments": 384.0,
+    "counter_radius": 18.0,
+    "leg_tip_x": 63.0,
+    "minimum_lane_gap": 4.0,
+    "padding": 2.0,
+    "radius": 27.0,
+    "record_stroke": 4.0,
+    "simplify_tolerance": 0.006,
+    "smoothing_alpha": 0.5,
+    "source_cap": 72.0,
+    "stroke": 9.0,
+    "target_radius": 12.0,
+    "tracking": -1.0,
+    "type_weight": 700.0,
+    "unit": 3.0,
+    "word_gap": 6.0
+  },
+  "rationale": [
+    {
+      "check": "Changing records must not change the reference geometry.",
+      "observable_result": "A steady outer R supports the internal record.",
+      "parameters": [
+        "unit",
+        "radius",
+        "stroke",
+        "source_cap"
+      ],
+      "philosophy": "training-support",
+      "rule": "Hold the reference frame fixed as observation values and smoothing vary.",
+      "status": "implemented"
+    },
+    {
+      "check": "Verify the summary independently and that it drives actual curve coordinates.",
+      "observable_result": "The inner trace summarizes multiple records rather than tracing raw inputs.",
+      "parameters": [
+        "smoothing_alpha"
+      ],
+      "philosophy": "accumulated-evidence",
+      "rule": "Use an exponential moving average of an illustrative observation sequence.",
+      "status": "implemented"
+    },
+    {
+      "check": "Validate target-minus-summary radii, genuine lane clearance, and a readable mono symbol.",
+      "observable_result": "The trace approaches its target as the illustrated summary deviation decreases.",
+      "parameters": [
+        "target_radius",
+        "minimum_lane_gap",
+        "record_stroke"
+      ],
+      "philosophy": "guided-improvement",
+      "rule": "Express differences relative to a fixed target inside the reference envelope.",
+      "status": "implemented"
+    }
+  ],
+  "recipe_sha256": "fe2a8ce4f63dead1652d366c76661028e294b2437bfdbda8a8314c1f06fe3555",
+  "unresolved_philosophies": []
+}

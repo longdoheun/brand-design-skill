@@ -8,6 +8,8 @@ import unittest
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from generate_calibration import EXAMPLE,geometry,model,generate,summarize
+from lettering import glyphs,layout
+from shapely.affinity import scale
 
 
 class CalibrationTests(unittest.TestCase):
@@ -69,6 +71,38 @@ class CalibrationTests(unittest.TestCase):
                 self.assertEqual((first/name).read_text(),value)
             manifest=json.loads((first/'reprism-resolved.json').read_text())
             self.assertEqual(manifest['unresolved_philosophies'],[])
+
+    def test_letterform_topology_and_shared_bowl(self):
+        p,*_=model(self.design);letters=glyphs(p)
+        for letter,shape in letters.items():
+            self.assertTrue(shape.is_valid,letter)
+            self.assertFalse(shape.is_empty,letter)
+        for letter in 'ep':self.assertEqual(len(letters[letter].interiors),1)
+        for letter in 'rsm':
+            self.assertEqual(letters[letter].geom_type,'Polygon')
+            self.assertEqual(len(letters[letter].interiors),0)
+        self.assertEqual(len(letters['i'].geoms),2)
+        # The p bowl repeats the R's dimensions at the lowercase centre.
+        self.assertAlmostEqual(letters['p'].bounds[2],2*p['radius'])
+        counter=letters['p'].interiors[0]
+        self.assertAlmostEqual(counter.bounds[2],2*p['radius']-p['stroke'])
+        self.assertAlmostEqual(counter.bounds[0],p['stroke'])
+        self.assertAlmostEqual(letters['p'].bounds[3],p['source_cap']+p['descender'])
+
+    def test_whole_wordmark_spacing_and_scaling(self):
+        p,reference,*_=model(self.design)
+        params=geometry.Parameters(self.design['parameters'])
+        pairs={key:params.evaluate(value) for key,value in self.design['pair_gaps'].items()}
+        placed,_=layout(p,reference.bounds[2],pairs)
+        for (a,left),(b,right) in zip(placed,placed[1:]):
+            self.assertAlmostEqual(right.bounds[0]-left.bounds[2],pairs[a+b])
+            self.assertGreaterEqual(left.distance(right)*28/100,1)
+        changed=copy.deepcopy(self.design);changed['parameters']['unit']=4
+        enlarged=geometry.Parameters(changed['parameters']).values
+        original_glyphs=glyphs(p);larger_glyphs=glyphs(enlarged)
+        for letter,shape in original_glyphs.items():
+            self.assertLess(scale(shape,xfact=4/3,yfact=4/3,origin=(0,0)).hausdorff_distance(larger_glyphs[letter]),.02)
+        with self.assertRaises(ValueError):layout(p,reference.bounds[2],{**pairs,'ep':-1})
 
 
 if __name__=='__main__':unittest.main()

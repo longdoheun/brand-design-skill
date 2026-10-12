@@ -10,7 +10,7 @@ The workflow connects **intent → geometric operation → parameters → visual
 - **[Brief format](brand-design/references/brief-contract.md):** how to separate philosophies, hard constraints, exploratory rules, and assumptions.
 - **[Geometry renderer](brand-design/scripts/render_geometry.py):** a dependency-free Python tool for parameterized SVG primitives, compound paths, affine transformations, and construction guides.
 - **[Recipe format](brand-design/references/recipe-contract.md):** supported expressions, shapes, palettes, and recorded rationale.
-- **[Reprism example](examples/reprism/case-study.md):** a complete worked design study with source parameters, a Boolean geometry extension, outlined typography, and generated assets.
+- **[Reprism example](examples/reprism/case-study.md):** a complete worked design study with source parameters, a Boolean geometry extension, original geometric lettering, and generated assets.
 
 ## Install in Codex
 
@@ -57,13 +57,13 @@ Outputs include palette variants, a separate construction SVG, and a JSON manife
 
 ## Reprism: data-guided training support
 
-Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The relationship remains visible in monochrome; the finished artwork contains no graphs, construction guides, or attached arrow.
+Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The complete name shares a geometric grammar: R/e/p bowls, a common construction stroke, linked lowercase proportions, and related r/m arches. Pair-specific spacing and disclosed optical corrections refine the result. The relationship remains visible in monochrome; construction guides stay out of the finished artwork.
 
 ![Reprism data-guided training wordmark](examples/reprism/preview.png)
 
 See the [case study](examples/reprism/case-study.md), [design parameters](examples/reprism/design.json), and [generated SVGs](examples/reprism/generated/). Earlier studies are preserved under `examples/reprism/archive/`.
 
-This example uses Boolean geometry and font outlining beyond the general renderer. To reproduce it, install its build-time requirements in a virtual environment:
+This example uses Boolean geometry and original lettering beyond the general renderer. To reproduce it, install its build-time requirements in a virtual environment:
 
 ```sh
 python -m venv .venv
@@ -72,7 +72,7 @@ python -m venv .venv
   --output output/reprism
 ```
 
-`--alpha 0.25` or `--alpha 0.75` explores another statistical smoothing gain. The reference frame stays fixed while the inner trace changes. Use this example generator for structural changes: its exported `render-recipe.json` contains flattened geometry, not the authoritative statistical source. The example's font, colors, proportions, and construction are project-specific choices.
+`--alpha 0.25` or `--alpha 0.75` explores another statistical smoothing gain. The reference frame stays fixed while the inner trace changes. Use this example generator for structural changes: its exported `render-recipe.json` contains flattened geometry, not the authoritative statistical source. The example's lettering, colors, proportions, and construction are project-specific choices.
 
 ## Verify
 
@@ -82,7 +82,7 @@ Run the general renderer's tests with:
 python -m unittest discover -s brand-design/scripts -p 'test_*.py'
 ```
 
-The Reprism example also includes geometry checks for its reference stability, statistical summaries, target-relative coordinates, topology, clearance, and reproducibility. With its build-time requirements installed, run:
+The Reprism example also includes geometry checks for its reference stability, statistical summaries, target-relative coordinates, topology, clearance, full-wordmark spacing, letterform scaling, and reproducibility. With its build-time requirements installed, run:
 
 ```sh
 .venv/bin/python -m unittest discover -s examples/reprism/scripts -p 'test_*.py'
@@ -90,8 +90,8 @@ The Reprism example also includes geometry checks for its reference stability, s
 
 These checks verify construction properties; they do not establish how an audience interprets the logo. The example is a proposed identity asset, not an application deployment.
 
-## References and font attribution
+## References and archived font attribution
 
 The skill's [construction reference](brand-design/references/geometric-construction.md) links to primary design cases from Google, Pentagram, and IBM. They are references, not affiliated brands or reusable proprietary artwork.
 
-The Reprism wordmark uses Manrope, distributed under the [SIL Open Font License](examples/reprism/assets/fonts/OFL.txt). Its font source, FONTLOG, and SHA-256 provenance are included with the example. Runtime SVG usage requires no font installation.
+Archived Reprism studies use Manrope, distributed under the [SIL Open Font License](examples/reprism/assets/fonts/OFL.txt). Its font source, FONTLOG, and SHA-256 provenance are included with the example. The current signature uses original geometric lettering. Runtime SVG usage requires no font installation.

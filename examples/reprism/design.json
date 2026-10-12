@@ -1,6 +1,6 @@
 {
-  "version": 4,
-  "direction": "Reference, record, refine",
+  "version": 5,
+  "direction": "Reference, record, refine \u2014 one letterform system",
   "parameters": {
     "unit": 3,
     "source_cap": "24*unit",
@@ -15,16 +15,47 @@
     "arc_segments": 384,
     "simplify_tolerance": 0.006,
     "padding": 2,
-    "type_weight": 700,
-    "word_gap": 6,
-    "tracking": -1
+    "x_height": "2*radius",
+    "descender": "8*unit",
+    "arch_radius": "6*unit",
+    "optical_overshoot": ".25*unit",
+    "s_width": "49*unit/3"
   },
-  "observed_deviations": [4, 2, 1, 0.5],
+  "observed_deviations": [
+    4,
+    2,
+    1,
+    0.5
+  ],
   "data_status": "Illustrative normalized design values; not user records or exercise outcome evidence.",
   "variants": {
-    "primary": { "ink": "#66E2A6", "record": "#91EDBF", "type": "#F4F7F6" },
-    "light": { "ink": "#147A55", "record": "#327E60", "type": "#172129" },
-    "mono": { "ink": "#172129", "record": "#172129", "type": "#172129" },
-    "inverse": { "ink": "#F4F7F6", "record": "#F4F7F6", "type": "#F4F7F6" }
+    "primary": {
+      "ink": "#66E2A6",
+      "record": "#91EDBF",
+      "type": "#F4F7F6"
+    },
+    "light": {
+      "ink": "#147A55",
+      "record": "#327E60",
+      "type": "#172129"
+    },
+    "mono": {
+      "ink": "#172129",
+      "record": "#172129",
+      "type": "#172129"
+    },
+    "inverse": {
+      "ink": "#F4F7F6",
+      "record": "#F4F7F6",
+      "type": "#F4F7F6"
+    }
+  },
+  "pair_gaps": {
+    "Re": "2*unit",
+    "ep": "5*unit/3",
+    "pr": "2*unit",
+    "ri": "5*unit/3",
+    "is": "5*unit/3",
+    "sm": "5*unit/3"
   }
 }

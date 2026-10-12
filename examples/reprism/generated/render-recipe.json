@@ -14,9 +14,11 @@
     "arc_segments": 384,
     "simplify_tolerance": 0.006,
     "padding": 2,
-    "type_weight": 700,
-    "word_gap": 6,
-    "tracking": -1
+    "x_height": "2*radius",
+    "descender": "8*unit",
+    "arch_radius": "6*unit",
+    "optical_overshoot": ".25*unit",
+    "s_width": "49*unit/3"
   },
   "view_box": [
     0,

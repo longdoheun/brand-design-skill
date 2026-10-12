@@ -40,6 +40,11 @@
       "id": "honest-metaphor",
       "statement": "Label the numerical inputs as illustrative design values, without implying clinical validation or actual exercise outcomes.",
       "strength": "hard"
+    },
+    {
+      "id": "whole-signature",
+      "statement": "Design R and eprism as one signature: related strokes, bowls, proportions and optical spacing within the application palette.",
+      "strength": "hard"
     }
   ],
   "preserve": [
@@ -59,10 +64,14 @@
     {
       "placement": "Web header",
       "surface": "dark and light",
-      "height_px": [28, 32, 40]
+      "height_px": [
+        28,
+        32,
+        40
+      ]
     }
   ],
-  "typography": "Outlined Manrope 700.",
+  "typography": "Original geometric lettering: shared symbol/letter construction with disclosed optical adjustments.",
   "assumptions": [
     "The logo expresses data-informed support; audience interpretation remains a design judgment."
   ]

@@ -56,9 +56,32 @@ The target itself stays out of production artwork. Guides and sample markers app
 
 Circular arcs and the record curve are sampled at 384 steps; export simplification is bounded by a 0.006-unit parameter. Real browser inspection checks dark/light surfaces, monochrome, and 28/32/40px header sizes. Geometry tests alone do not prove aesthetic quality.
 
-## Wordmark and surfaces
+## One wordmark, one construction system
 
-The R is the first letter of `Reprism`; the remaining letters use outlined Manrope 700. The 6-unit R/e gap and −1-unit tracking are named spacing choices. All production SVGs are transparent and self-contained.
+The complete `Reprism` signature uses original geometric lettering. It is not a custom R placed next to an unrelated stock typeface. Its shared grammar is explicit:
+
+| Relationship | Construction | Purpose |
+| --- | --- | --- |
+| R → e → p | The same 27-unit circular bowl and 18-unit inner radius; p repeats the R's D-shaped bowl | Carry recognition across the name rather than isolating it in the initial |
+| All letters | A 9-unit construction stroke | A consistent visual weight |
+| Lowercase height | `x-height = 2 × bowl radius = 54` against a 72-unit capital | Relate the lowercase proportions to the symbol's real circle |
+| r → m | 18-unit outer arches, with 9-unit counters | Extend the curve grammar without forcing every letter into a full circle |
+| i | A 9-unit stem and circular 9-unit dot | Keep small forms on the same dimensional system |
+| s | Tangent-continuous cubic transitions and a width of 49 units | Preserve a readable letter where a literal circle recipe would become awkward |
+| Optical fit | 0.75-unit overshoot for e and s; width/height fitting of s and vertical fitting of e | Match the perceived baseline and height of curved and flat forms |
+| Spacing | Re/pr: 6 units; ep/ri/is/sm: 5 units, all expressed relative to the base unit | Balance each adjacent pair rather than apply uniform tracking |
+
+The construction stroke is shared; optical fitting slightly changes the final weights of e and s. These adjustments are disclosed rather than described as perfectly uniform geometry. The p extends 24 units below the baseline. The i dot ends 9 units above the lowercase stems.
+
+The statistical trace remains distinctive to R. Repeating it in every letter would crowd the name and make the word harder to read. The other letters carry the relationship through their construction, not through repeated decoration. `generated/reprism-lettering.svg` overlays the real letterforms with the shared metrics and source bowl circles.
+
+## Relationship to the product
+
+The signature preserves the application's mint (`#66E2A6`), warm white (`#F4F7F6`), and dark (`#0B0E12`) palette. Its restrained geometric forms support an interface containing anatomical models, exercise controls, and quantitative records. The logo establishes identity while the model and workout information remain the main content. This is a proposed identity relationship; the preview uses the application's colors but does not constitute integration or a usability study.
+
+The benefit remains exercise assistance informed by evidence. The 3D renderer and motion tracker support that benefit; neither becomes the sole meaning of the brand. All production SVGs are transparent, outlined, and self-contained.
+
+## Surfaces
 
 | Surface | Reference | Record    | Type      |
 | ------- | --------- | --------- | --------- |
@@ -74,13 +97,14 @@ These colors and ratios belong to this brand example, not the generic skill. Exi
 - `brief.json` records purpose, philosophies, and constraints.
 - `design.json` provides source dimensions, observations, smoothing gain, and palettes.
 - `scripts/generate_calibration.py` computes reference and record geometry.
-- `scripts/identity_output.py` shares vector export and licensed typography handling.
+- `scripts/identity_output.py` shares vector export and complete signature layout.
+- `scripts/lettering.py` constructs the six original lowercase letterforms from shared modules and optical parameters.
 - `generated/geometry-evidence.json` records observations, statistical summaries, gap measurements, dimensions, and source hashes.
 - `generated/render-recipe.json` replays the flattened assets through the general renderer. Rerun the example builder to change the underlying statistics.
 - `preview.html` opens the standalone asset board using relative local paths.
 
-Install the pinned requirements from `requirements.txt` in a virtual environment, then run the example builder. `--alpha` varies smoothing without changing the reference. Tests cover independently calculated summaries, target-relative geometry, frame invariance, real clearance, topology, valid vector delivery, and repeatable output.
+Install the pinned requirements from `requirements.txt` in a virtual environment, then run the example builder. `--alpha` varies smoothing without changing the reference. Tests cover independently calculated summaries, target-relative geometry, frame invariance, real clearance, readable letter counters, connected arches, non-overlapping pair spacing, scale covariance, valid vector delivery, and repeatable output.
 
 ## References and attribution
 
-[Google's geometric identity case](https://design.google/library/evolving-google-identity), [Pentagram's MIT Media Lab identity](https://www.pentagram.com/work/mit-media-lab), and [IBM's logo guidance](https://www.ibm.com/design/language/ibm-logos/8-bar/) inform construction and optical review. They do not prescribe this symbol or establish its exercise efficacy. Manrope's source, license, and provenance remain in `assets/fonts/`.
+[Google's geometric identity case](https://design.google/library/evolving-google-identity), [Pentagram's MIT Media Lab identity](https://www.pentagram.com/work/mit-media-lab), and [IBM's logo guidance](https://www.ibm.com/design/language/ibm-logos/8-bar/) inform construction and optical review. They do not prescribe this symbol or establish its exercise efficacy. Earlier studies used Manrope; its source, license, and provenance remain in `assets/fonts/` for those archived assets. The current original lettering does not require that font.

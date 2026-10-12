@@ -1,0 +1,30 @@
+{
+  "version": 4,
+  "direction": "Reference, record, refine",
+  "parameters": {
+    "unit": 3,
+    "source_cap": "24*unit",
+    "stroke": "3*unit",
+    "radius": "9*unit",
+    "counter_radius": "radius-stroke",
+    "leg_tip_x": "21*unit",
+    "record_stroke": "4*unit/3",
+    "minimum_lane_gap": "4*unit/3",
+    "target_radius": "counter_radius-minimum_lane_gap-record_stroke/2",
+    "smoothing_alpha": 0.5,
+    "arc_segments": 384,
+    "simplify_tolerance": 0.006,
+    "padding": 2,
+    "type_weight": 700,
+    "word_gap": 6,
+    "tracking": -1
+  },
+  "observed_deviations": [4, 2, 1, 0.5],
+  "data_status": "Illustrative normalized design values; not user records or exercise outcome evidence.",
+  "variants": {
+    "primary": { "ink": "#66E2A6", "record": "#91EDBF", "type": "#F4F7F6" },
+    "light": { "ink": "#147A55", "record": "#327E60", "type": "#172129" },
+    "mono": { "ink": "#172129", "record": "#172129", "type": "#172129" },
+    "inverse": { "ink": "#F4F7F6", "record": "#F4F7F6", "type": "#F4F7F6" }
+  }
+}

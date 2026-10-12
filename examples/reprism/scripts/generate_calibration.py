@@ -59,8 +59,7 @@ def model(design):
         raise ValueError("The intended connected R must retain two readable counters.")
     lane=record.intersection(box(r,-cap,2*cap,2*cap))
     clearance=reference.distance(lane)
-    # Selected Manrope's p descender is one third of its cap height.
-    wordmark_height=cap*4/3+2*p["padding"]
+    wordmark_height=cap+p['descender']+2*p["padding"]
     if min(clearance,rw)*28/wordmark_height<1:
         raise ValueError("Record weight or curved-lane clearance is below 1px at 28px height.")
     tolerance=p["simplify_tolerance"]

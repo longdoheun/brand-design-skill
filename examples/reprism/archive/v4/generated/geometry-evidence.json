@@ -1,0 +1,28 @@
+{
+  "data_status": "Illustrative normalized design values; not user records or exercise outcome evidence.",
+  "observed_deviations": [
+    4,
+    2,
+    1,
+    0.5
+  ],
+  "statistical_summary": [
+    4.0,
+    3.0,
+    2.0,
+    1.25
+  ],
+  "smoothing_alpha": 0.5,
+  "target_radius": 12.0,
+  "lane_clearance": 5.249941755348066,
+  "lane_at_28px": 1.4699836914974582,
+  "record_weight_at_28px": 1.12,
+  "connected_components": 1,
+  "counter_count": 2,
+  "export_tolerance_units": 0.006,
+  "leg_angle_deg": 32.005383208083494,
+  "font_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+  "wordmark_height": 100.0,
+  "cap_height": 72.0,
+  "design_sha256": "f830477aad598c763ff422f1127ae71ad975609ca48f9a4e603827d2a48c0a5d"
+}

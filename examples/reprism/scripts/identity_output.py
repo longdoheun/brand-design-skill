@@ -1,15 +1,11 @@
-"""Shared SVG and licensed typography output for the Reprism example."""
+"""Shared SVG export for the Reprism symbol and original whole-word lettering."""
 
 import importlib.util
 import json
 from hashlib import sha256
 from pathlib import Path
 from xml.etree import ElementTree as ET
-from fontTools.ttLib import TTFont
-from fontTools.varLib.instancer import instantiateVariableFont
-from fontTools.pens.svgPathPen import SVGPathPen
-from fontTools.pens.transformPen import TransformPen
-from fontTools.pens.boundsPen import BoundsPen
+from lettering import layout
 
 SVG="http://www.w3.org/2000/svg"
 ET.register_namespace("",SVG)
@@ -35,32 +31,30 @@ def export_identity(design,brief,p,recipe,evidence,stages,output):
     files=geometry.render(brief,recipe)
     files.update(stages)
     files["render-recipe.json"]=json.dumps(recipe,indent=2)+"\n"
-    font_path=EXAMPLE/"assets/fonts/Manrope.ttf"
-    font_hash=sha256(font_path.read_bytes()).hexdigest()
-    if font_hash!="3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6":
-        raise ValueError("Font differs from its provenance record.")
-    font=instantiateVariableFont(TTFont(font_path),{"wght":p["type_weight"]})
-    glyphs=font.getGlyphSet();cmap=font.getBestCmap();cap=p["source_cap"];pad=p["padding"]
-    mark_width=recipe["view_box"][2]-2*pad;type_scale=cap/1440
-    cursor=mark_width+p["word_gap"];outlines=[];maxx=0;miny=0;maxy=cap
-    for letter in brief["name"][1:]:
-        glyph=glyphs[cmap[ord(letter)]];bounds=BoundsPen(glyphs);glyph.draw(bounds)
-        origin=cursor-(bounds.bounds[0]*type_scale if not outlines else 0)
-        pen=SVGPathPen(glyphs,ntos=lambda v:f"{v:.4f}".rstrip("0").rstrip("."))
-        glyph.draw(TransformPen(pen,(type_scale,0,0,-type_scale,origin+pad,cap+pad)))
-        outlines.append(pen.getCommands())
-        maxx=max(maxx,origin+bounds.bounds[2]*type_scale+pad)
-        miny=min(miny,cap+pad-bounds.bounds[3]*type_scale)
-        maxy=max(maxy,cap+pad-bounds.bounds[1]*type_scale)
-        cursor+=glyph.width*type_scale+p["tracking"]
-    if miny<0:raise ValueError("Typography extends beyond its safety inset.")
+    cap=p['source_cap'];pad=p['padding'];mark_width=recipe['view_box'][2]-2*pad
+    if brief['name']!='Reprism':raise ValueError('This lettering builder is scoped to Reprism.')
+    pair_resolver=geometry.Parameters(design['parameters'])
+    placed,type_evidence=layout(p,mark_width,{key:pair_resolver.evaluate(value) for key,value in design['pair_gaps'].items()})
+    maxx=placed[-1][1].bounds[2];maxy=max(shape.bounds[3] for _,shape in placed)
+    if min(shape.bounds[1] for _,shape in placed)<0:raise ValueError('Lettering exceeds its safety inset.')
     for variant,palette in design["variants"].items():
         root=ET.fromstring(files[f'{brief["slug"]}-symbol-{variant}.svg'])
-        root.set("viewBox",f"0 0 {maxx+pad:.4f} {maxy+pad:.4f}")
-        group=ET.SubElement(root,f"{{{SVG}}}g",{"fill":palette["type"]})
-        for data in outlines:ET.SubElement(group,f"{{{SVG}}}path",{"d":data})
+        root.set("viewBox",f"0 0 {maxx+2*pad:.4f} {maxy+2*pad:.4f}")
+        root.find(f'{{{SVG}}}desc').text='Reprism: reference, record, refine. A shared circular and stroke grammar across the whole signature.'
+        group=ET.SubElement(root,f"{{{SVG}}}g",{"fill":palette["type"],'fill-rule':'evenodd','transform':f'translate({pad} {pad})'})
+        for letter,shape in placed:ET.SubElement(group,f"{{{SVG}}}path",{"d":path(shape),'data-letter':letter})
         files[f'{brief["slug"]}-wordmark-{variant}.svg']=ET.tostring(root,encoding="unicode")+"\n"
-    evidence.update({"font_sha256":font_hash,"wordmark_height":maxy+pad,"cap_height":cap,
+    # The construction board includes the actual production lettering, with
+    # shared circles and horizontal metrics drawn separately from the artwork.
+    guides=''.join(f'<line x1="0" y1="{y}" x2="{maxx}" y2="{y}" stroke="#83CDE9" stroke-width=".3" stroke-dasharray="1 2"/>' for y in [0,cap-p['x_height'],cap,cap+p['descender']])
+    glyph_content=''.join(f'<path fill="#F4F7F6" fill-rule="evenodd" d="{path(shape)}"/>' for _,shape in placed)
+    circles=''.join(f'<circle cx="{shape.bounds[0]+p["radius"]}" cy="{cap-p["radius"]}" r="{p["radius"]}" fill="none" stroke="#66E2A6" stroke-width=".4"/>' for letter,shape in placed if letter in 'ep')
+    circles+=f'<circle cx="{p["radius"]}" cy="{p["radius"]}" r="{p["radius"]}" fill="none" stroke="#66E2A6" stroke-width=".4"/>'
+    symbol=ET.fromstring(files['reprism-symbol-primary.svg']).find(f'{{{SVG}}}g')
+    # Remove its production inset to align the diagram with the baseline grid.
+    symbol.set('transform','translate(0 0)')
+    files['reprism-lettering.svg']=stage(ET.tostring(symbol,encoding='unicode')+glyph_content+guides+circles,'Shared stroke, circular bowls, x-height, baseline, and pair-specific spacing',maxx+10,maxy+10)
+    evidence.update({**type_evidence,"wordmark_height":maxy+2*pad,"cap_height":cap,
                      "design_sha256":sha256(json.dumps(design,sort_keys=True).encode()).hexdigest()})
     files["geometry-evidence.json"]=json.dumps(evidence,indent=2)+"\n"
     output.mkdir(parents=True,exist_ok=True)

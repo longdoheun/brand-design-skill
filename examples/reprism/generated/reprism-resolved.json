@@ -67,29 +67,36 @@
         "id": "honest-metaphor",
         "statement": "Label the numerical inputs as illustrative design values, without implying clinical validation or actual exercise outcomes.",
         "strength": "hard"
+      },
+      {
+        "id": "whole-signature",
+        "statement": "Design R and eprism as one signature: related strokes, bowls, proportions and optical spacing within the application palette.",
+        "strength": "hard"
       }
     ],
     "slug": "reprism",
-    "typography": "Outlined Manrope 700."
+    "typography": "Original geometric lettering: shared symbol/letter construction with disclosed optical adjustments."
   },
   "parameter_overrides": {},
   "parameters": {
     "arc_segments": 384.0,
+    "arch_radius": 18.0,
     "counter_radius": 18.0,
+    "descender": 24.0,
     "leg_tip_x": 63.0,
     "minimum_lane_gap": 4.0,
+    "optical_overshoot": 0.75,
     "padding": 2.0,
     "radius": 27.0,
     "record_stroke": 4.0,
+    "s_width": 49.0,
     "simplify_tolerance": 0.006,
     "smoothing_alpha": 0.5,
     "source_cap": 72.0,
     "stroke": 9.0,
     "target_radius": 12.0,
-    "tracking": -1.0,
-    "type_weight": 700.0,
     "unit": 3.0,
-    "word_gap": 6.0
+    "x_height": 54.0
   },
   "rationale": [
     {
@@ -128,6 +135,6 @@
       "status": "implemented"
     }
   ],
-  "recipe_sha256": "fe2a8ce4f63dead1652d366c76661028e294b2437bfdbda8a8314c1f06fe3555",
+  "recipe_sha256": "6051191592c43217736c54e1a665f31f6c2adcdfd154580528cf2c0c3039f0e0",
   "unresolved_philosophies": []
 }
