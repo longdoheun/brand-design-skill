@@ -1,0 +1,25 @@
+{
+  "projection_matrix": [
+    0.9639554877172175,
+    -0.08921329848891729,
+    -0.08921329848891729,
+    0.7791893377601768,
+    3.006187458520795,
+    7.440575057489772
+  ],
+  "normalization_scale": 1.077479774640022,
+  "source_cap": 72.0,
+  "source_stroke": 12.0,
+  "source_counter_area": 514.1889936823902,
+  "seam_units": 3.8789271887040853,
+  "seam_at_28px": 1.0860996128371438,
+  "seam_at_32px": 1.2412567003853072,
+  "face_count": 2,
+  "export_tolerance_units": 0.008,
+  "arc_sagitta_bound_units": 0.00045179321757338187,
+  "font_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+  "wordmark_height": 100.0,
+  "word_gap": 6.0,
+  "cap_height": 72.0,
+  "design_sha256": "2e4c262380c567cf963150a451971b6aafa503da3a059d7be8a5eb746a78592c"
+}

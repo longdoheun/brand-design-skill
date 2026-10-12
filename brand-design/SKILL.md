@@ -13,6 +13,8 @@ Accept ordinary language, existing assets, or a structured brief. Read [the brie
 
 Separate hard constraints from adjustable starting points. A user-supplied mathematical rule remains a requirement unless they authorize changing it. Explain a legibility conflict with a concrete rendered alternative. Existing brand history, researched evidence, and new proposals must be labeled separately.
 
+Distinguish the brand's benefit to its user from its delivery mechanisms. Prioritize the benefit in the brief; do not let a technology, visualization technique, or the brand's spelling dictate the primary philosophy.
+
 ## Philosophy → rule → form
 
 1. Build a traceable mapping for each chosen direction: **philosophy → geometric operation → parameter → visible result → verification**. For example, continuity might use tangent joins, while multiple viewpoints might use transformations of one shared source curve. Do not merely attach meanings to an arbitrary finished shape.
@@ -32,4 +34,4 @@ Do not deploy, alter application navigation, update app icons, or publish to a r
 
 ## Example boundary
 
-The companion repository's `examples/reprism/` is a worked shared-axis projection study with its brief, design parameters, scoped Boolean/typographic generator, licensed font, and rendered artifacts. It is **not** the generic template or a required dependency. The installed skill works without that folder. Its design parameters are authoritative; the exported renderer recipe contains flattened paths. Use the example only when relevant, and do not mistake implemented geometry for demonstrated audience interpretation.
+The companion repository's `examples/reprism/` is a worked data-guided training-support study with its brief, statistical design inputs, scoped geometry/typography generator, licensed font, and rendered artifacts. It is **not** the generic template or a required dependency. The installed skill works without that folder. Its design inputs are authoritative; the exported renderer recipe contains flattened paths. Use the example only when relevant. Implemented geometry does not establish audience interpretation or product efficacy.

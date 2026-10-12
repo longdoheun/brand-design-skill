@@ -1,76 +1,86 @@
-# Reprism — shared-axis projection
+# Reprism — reference, record, refine
 
-Reprism is an exercise motion-tracking and replay application. This proposed web signature expresses **one movement, observed from different viewpoints** through two related faces of a single R source. A controlled negative seam distinguishes the faces without relying on color. It is a logo design study, not exercise simulation or evidence of audience interpretation.
+Reprism supports exercise decisions through measured movement, accumulated records, and interpretable statistical feedback. Tracking and 3D replay are tools for that purpose. This proposed signature expresses **a stable reference supporting a record that can be compared and refined**.
 
-## From philosophy to geometry
+The numerical observations are illustrative normalized design values. They are not user records, exercise prescriptions, or evidence of training effectiveness. The geometry implements a brand metaphor; audience interpretation still needs visual judgment.
 
-| Intent                                 | Implemented operation                                      | Visible effect                                                        |
-| -------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
-| Observe the same movement consistently | Reuse one parameterized R source for both faces            | A recognizable letter with a common geometric origin                  |
-| Read a movement from different views   | Project one face of the source around a shared, fixed axis | A subtly foreshortened upper rim and counter                          |
-| Make the relationship understandable   | Keep a measured negative seam between faces                | A clean distinction that remains visible in single-color reproduction |
+## Philosophy → construction
 
-The construction has no attached arrowhead or start-point dot. Mint and the Reprism spelling remain continuous with the application's existing identity. The previous baseline is preserved in `archive/v2/`.
+| Brand intent                    | Actual construction rule                                              | Visible result                                                                              |
+| ------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Support the person's training   | Keep a stable outer R regardless of record values or statistical gain | An enclosing frame and a steady vertical anchor                                             |
+| Learn from accumulated evidence | Compute an exponential moving average before drawing the record trace | One continuous inner curve derived from multiple observations                               |
+| Connect evidence to adjustment  | Position the inner curve by its deviation from a fixed target         | A target-relative record that approaches the reference as the illustrative summary improves |
 
-## Source model
+The direction replaces a viewpoint-focused metaphor with data-informed exercise support. Earlier geometric and projection studies are preserved under `archive/`.
 
-All source dimensions derive from `u=6`:
+## Reference geometry
 
-- Cap height `12u=72` and stem/diagonal weight `2u=12`.
-- Circular bowl radius `4u=24`, centered at `(24,24)`; counter radius `24−12=12`.
-- Diagonal band follows a 45° direction. Its corners use the perpendicular offset `w/(2√2)`, preserving the source weight rather than matching horizontal bounding-box widths.
-- Circular arcs are sampled with 256 segments per semicircle. The maximum source sagitta is below 0.0005 source units; topology-preserving export simplification uses a separate 0.008-unit tolerance.
+The base unit is `u=3`. Cap height is `24u=72`, outer circular radius is `9u=27`, and reference weight is `3u=9`. The internal boundary radius is `27−9=18`.
 
-The finished projected strokes intentionally foreshorten. Equal weight is a property of the source plane, not a claim that every projected section retains the same visible width.
+The diagonal uses a true perpendicular offset of half the reference weight. Its angle follows the chosen endpoints rather than an arbitrary 45° constraint. The source model stays unchanged when observations or smoothing gain vary. The reference is painted over its joining record links, preserving the visual frame as well as its geometry.
 
-## Shared-axis projection
+## Statistical construction
 
-Let the axis through the bowl center have unit direction `v`, and perpendicular direction `n`. Orthographic projection of a plane folded by angle `θ` around that axis is:
+The illustrative observations are deviations `[4, 2, 1, 0.5]`. With smoothing gain `α=0.5`:
 
 ```text
-T = v vᵀ + cos(θ) n nᵀ
-p′ = c + T (p − c)
+z₀ = d₀
+zₖ = (1 − α) zₖ₋₁ + α dₖ
+z = [4, 3, 2, 1.25]
 ```
 
-The selected axis is −22°, and the fold is 42°. Every point `c+t·v` stays fixed, while displacement along `n` is multiplied by `cos(42°)`. This is a projection of a planar design surface, not a perspective camera model.
+This is an exponential moving average. It records accumulation explicitly rather than assuming that a single latest value represents the trend. The gain is a design parameter, not a recommended exercise adjustment rate.
 
-The lower face comes from the source; the upper face comes from the projected copy of that same source. They are clipped to opposite half-planes with a symmetric gap of `0.6u=3.6` along `n`. The gap is actual negative geometry, rather than a colored line placed over the logo. The counter changes with the projection because it belongs to the transformed source.
+The target radius is derived from the available counter and the required visual separation:
 
-The result is normalized once to a 72-unit cap height; both faces and their gap receive the same scale. The nominal gap is approximately **1.086 CSS px at a 28px wordmark height**, and **1.241px at 32px**. Actual antialiasing depends on display scale and rendering. Browser review complements these geometric measurements.
+```text
+r* = counter radius − minimum gap − record weight / 2
+r* = 18 − 4 − 2 = 12
+```
 
-## Optical selection
+The summary values determine the record radii `[8, 9, 10, 10.75]` using `rₖ = r* − zₖ`. Between records, a bounded smoothstep interpolates the deviation. For phase `t`:
 
-Three fold angles—30°, 42°, and 54°—were rendered with the complete wordmark. The middle option retains more of the counter than the strong fold while making the change in the upper face visible. The −22° axis creates a rising seam without competing with the R leg. These are project-specific visual choices, not universal ideal angles.
+```text
+C(t) = (cx, cy) + (r* − z(t)) · (cos(−π/2 + πt), sin(−π/2 + πt))
+smoothstep(f) = 3f² − 2f³
+```
 
-The face gap was enlarged to 3.6 units so its nominal clearance exceeds 1px at the smallest intended header size. The symbol's cap height is aligned with the lettering rather than the source plane's unprojected top edge. A 6-unit R/e gap and −1-unit tracking provide an initial optical balance; both are named parameters.
+Endpoint-flat interpolation makes the arc tangent to its horizontal joining links and avoids abrupt direction changes at record boundaries. The trace's constant-width band is generated around this curve. Both links join the reference spine, producing one connected R with two readable counters. More adverse observation values can move the trace away from the target; the model does not manufacture improvement irrespective of its inputs.
 
-## Typography and surfaces
+## Optical constraints
 
-The remaining `eprism` letters use outlined Manrope at weight 700. The R is the first letter; a second capital R or a boxed app icon is not placed before it. Typeface choice is documented rather than claimed as original lettering.
+The record weight is `4` source units: approximately **1.12 CSS px** at a 28px full wordmark height. The selected curved-lane clearance is approximately **5.25 units / 1.47px** at that size. These measurements concern the curved region; the joining links intentionally meet the reference spine.
 
-| Variant        | Front face | Folded face | Type      |
-| -------------- | ---------- | ----------- | --------- |
-| Primary / dark | `#66E2A6`  | `#91EDBF`   | `#F4F7F6` |
-| Light          | `#147A55`  | `#327E60`   | `#172129` |
-| Mono           | `#172129`  | `#172129`   | `#172129` |
-| Inverse        | `#F4F7F6`  | `#F4F7F6`   | `#F4F7F6` |
+The target itself stays out of production artwork. Guides and sample markers appear only in the construction assets. The diagram is evidence of the actual source model, not a decorative grid over a finished drawing.
 
-Deliverables have transparent backgrounds and outlined production typography. The recommended full wordmark height is 32px; 28px and 40px are also reviewed. Reserve approximately half the cap height as external clearspace. Existing app icons and application navigation are outside this example.
+Circular arcs and the record curve are sampled at 384 steps; export simplification is bounded by a 0.006-unit parameter. Real browser inspection checks dark/light surfaces, monochrome, and 28/32/40px header sizes. Geometry tests alone do not prove aesthetic quality.
 
-## Reproduce and inspect
+## Wordmark and surfaces
 
-`design.json` is the authoritative parameter source. `brief.json` records intent and constraints. `scripts/generate_projection.py` performs the projection, clipping, Boolean operations, font outlining, and exports:
+The R is the first letter of `Reprism`; the remaining letters use outlined Manrope 700. The 6-unit R/e gap and −1-unit tracking are named spacing choices. All production SVGs are transparent and self-contained.
 
-- Production symbols and wordmarks in four palettes.
-- Source, projected-view, and construction SVGs.
-- `render-recipe.json`, a flattened recipe usable by the shared SVG renderer.
-- `geometry-evidence.json`, with the projection matrix, clearance, approximation tolerances, source hashes, and dimensions.
-- `reprism-resolved.json`, with the implemented geometry mappings. These statuses do not assert a validated audience response.
+| Surface | Reference | Record    | Type      |
+| ------- | --------- | --------- | --------- |
+| Dark    | `#66E2A6` | `#91EDBF` | `#F4F7F6` |
+| Light   | `#147A55` | `#327E60` | `#172129` |
+| Mono    | `#172129` | `#172129` | `#172129` |
+| Inverse | `#F4F7F6` | `#F4F7F6` | `#F4F7F6` |
 
-To vary the fold or source dimensions, rerun the example builder using an edited design file or `--fold`; editing the flattened recipe's numeric metadata does not recompute its Boolean paths. Install the pinned build-time dependencies in `requirements.txt`. Source fonts and their license remain in `assets/fonts/`.
+These colors and ratios belong to this brand example, not the generic skill. Existing app icons and application navigation are separate integration work.
 
-The numerical tests verify the fixed axis, normal foreshortening, two valid faces, seam clearance, parameter effects, and byte-identical regeneration. The rendered preview shows the complete signature on dark/light surfaces and at header sizes.
+## Reproduction
 
-## Design references
+- `brief.json` records purpose, philosophies, and constraints.
+- `design.json` provides source dimensions, observations, smoothing gain, and palettes.
+- `scripts/generate_calibration.py` computes reference and record geometry.
+- `scripts/identity_output.py` shares vector export and licensed typography handling.
+- `generated/geometry-evidence.json` records observations, statistical summaries, gap measurements, dimensions, and source hashes.
+- `generated/render-recipe.json` replays the flattened assets through the general renderer. Rerun the example builder to change the underlying statistics.
+- `preview.html` opens the standalone asset board using relative local paths.
 
-[Google's identity construction case](https://design.google/library/evolving-google-identity) informs geometry followed by optical review. [Pentagram's MIT Media Lab case](https://www.pentagram.com/work/mit-media-lab) informs common-source shape grammar. [IBM's logo guidance](https://www.ibm.com/design/language/ibm-logos/8-bar/) informs spacing and surface-aware review. [Linear's brand guidelines](https://linear.app/brand) inform compact-symbol versus wordmark use. These sources do not prescribe Reprism's particular shape or measurements.
+Install the pinned requirements from `requirements.txt` in a virtual environment, then run the example builder. `--alpha` varies smoothing without changing the reference. Tests cover independently calculated summaries, target-relative geometry, frame invariance, real clearance, topology, valid vector delivery, and repeatable output.
+
+## References and attribution
+
+[Google's geometric identity case](https://design.google/library/evolving-google-identity), [Pentagram's MIT Media Lab identity](https://www.pentagram.com/work/mit-media-lab), and [IBM's logo guidance](https://www.ibm.com/design/language/ibm-logos/8-bar/) inform construction and optical review. They do not prescribe this symbol or establish its exercise efficacy. Manrope's source, license, and provenance remain in `assets/fonts/`.

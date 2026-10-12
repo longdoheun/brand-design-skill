@@ -1,44 +1,44 @@
 {
   "name": "Reprism",
   "slug": "reprism",
-  "purpose": "Help people observe, understand, and replay their exercise motion.",
-  "audience": "People training with motion tracking and a 3D exercise model.",
+  "purpose": "Support exercise decisions through measured movement, accumulated records, and interpretable statistical feedback.",
+  "audience": "People who want training assistance and data-informed improvement.",
   "philosophies": [
     {
-      "id": "clarity",
-      "statement": "Make movement understandable without visual noise.",
+      "id": "training-support",
+      "statement": "Provide a stable reference that supports a person's training.",
       "priority": "primary"
     },
     {
-      "id": "repetition",
-      "statement": "Observe the same underlying movement consistently.",
-      "priority": "secondary"
+      "id": "accumulated-evidence",
+      "statement": "Summarize repeated records instead of reacting to one isolated observation.",
+      "priority": "primary"
     },
     {
-      "id": "multiple-views",
-      "statement": "Read one movement through different views and notice its differences.",
+      "id": "guided-improvement",
+      "statement": "Connect measured differences to an understandable next adjustment.",
       "priority": "primary"
     }
   ],
   "rules": [
     {
-      "id": "shared-source",
-      "statement": "Both faces must derive from the same geometric R source.",
+      "id": "stable-reference",
+      "statement": "Record inputs and statistical gain may change the inner trace but must leave the outer R reference unchanged.",
       "strength": "hard"
     },
     {
-      "id": "source-weight",
-      "statement": "Use equal stem and perpendicular diagonal weight in the source plane; projected weights may foreshorten.",
+      "id": "traceable-summary",
+      "statement": "Use an explicitly computed statistical summary to construct the internal curve.",
       "strength": "hard"
     },
     {
-      "id": "fixed-axis",
-      "statement": "The orthographic fold projection must preserve every point on the shared axis.",
+      "id": "visible-comparison",
+      "statement": "Maintain at least 1px nominal trace weight and curved-lane clearance at a 28px wordmark height.",
       "strength": "hard"
     },
     {
-      "id": "negative-space",
-      "statement": "Use an actual seam between projected faces, with nominal clearance above 1px at a 28px wordmark height.",
+      "id": "honest-metaphor",
+      "statement": "Label the numerical inputs as illustrative design values, without implying clinical validation or actual exercise outcomes.",
       "strength": "hard"
     }
   ],
@@ -50,10 +50,10 @@
   ],
   "avoid": [
     "Attached arrowhead",
-    "Start-point dot",
-    "Dumbbell pictogram",
-    "Rainbow prism",
-    "Opaque background in the wordmark"
+    "Literal chart or dumbbell icon",
+    "Clinical badge",
+    "Decorative 3D fold",
+    "Construction guides in production artwork"
   ],
   "applications": [
     {
@@ -62,8 +62,8 @@
       "height_px": [28, 32, 40]
     }
   ],
-  "typography": "Outlined Manrope at weight 700; a project choice rather than a generic default.",
+  "typography": "Outlined Manrope 700.",
   "assumptions": [
-    "A shared-axis fold is a proposed metaphor for observation, not a simulation of an exercise or a measured audience response."
+    "The logo expresses data-informed support; audience interpretation remains a design judgment."
   ]
 }

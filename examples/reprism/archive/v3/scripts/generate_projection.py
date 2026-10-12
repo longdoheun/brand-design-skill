@@ -19,7 +19,7 @@ from fontTools.pens.boundsPen import BoundsPen
 SVG = "http://www.w3.org/2000/svg"
 ET.register_namespace("", SVG)
 EXAMPLE = Path(__file__).resolve().parents[1]
-REPOSITORY = EXAMPLE.parents[1]
+REPOSITORY = EXAMPLE.parents[3]
 spec = importlib.util.spec_from_file_location("geometry", REPOSITORY / "brand-design/scripts/render_geometry.py")
 geometry = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(geometry)
@@ -141,7 +141,7 @@ def generate(design, brief, output):
         f'<path fill="none" stroke="#F4F7F6" stroke-width=".45" stroke-dasharray="1.4 1.4" '
         f'd="M0 {line_y0}L60 {line_y1}"/>',"Front and folded views preserve the same shared axis")
 
-    font_path=EXAMPLE/"assets/fonts/Manrope.ttf"
+    font_path=EXAMPLE.parents[1]/"assets/fonts/Manrope.ttf"
     font_hash=sha256(font_path.read_bytes()).hexdigest()
     if font_hash != "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6":
         raise ValueError("Font source differs from its provenance record.")

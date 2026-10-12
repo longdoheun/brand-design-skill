@@ -55,24 +55,24 @@ Use repeatable `--set NAME=EXPRESSION` arguments to vary existing adjustable par
 
 Outputs include palette variants, a separate construction SVG, and a JSON manifest of resolved parameters and philosophy mappings. Mappings that are missing or pending remain explicitly unresolved. Rendered inspection is still necessary to assess counters, clipping, optical weight, and small-size legibility.
 
-## Reprism: shared-axis projection
+## Reprism: data-guided training support
 
-Reprism is a worked example of an exercise motion-tracking and replay brand. Its symbol derives two views of the **same R source**, joined around a shared axis. An orthographic fold changes the upper counter and rim, while a controlled negative seam keeps the views distinct in monochrome. The finished signature contains no construction guides, attached arrow, or start-point decoration.
+Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The relationship remains visible in monochrome; the finished artwork contains no graphs, construction guides, or attached arrow.
 
-![Reprism shared-axis projection wordmark](examples/reprism/preview.png)
+![Reprism data-guided training wordmark](examples/reprism/preview.png)
 
-See the [case study](examples/reprism/case-study.md), [design parameters](examples/reprism/design.json), and [generated SVGs](examples/reprism/generated/). The previous geometric baseline is preserved in `examples/reprism/archive/v2/`.
+See the [case study](examples/reprism/case-study.md), [design parameters](examples/reprism/design.json), and [generated SVGs](examples/reprism/generated/). Earlier studies are preserved under `examples/reprism/archive/`.
 
 This example uses Boolean geometry and font outlining beyond the general renderer. To reproduce it, install its build-time requirements in a virtual environment:
 
 ```sh
 python -m venv .venv
 .venv/bin/python -m pip install -r examples/reprism/requirements.txt
-.venv/bin/python examples/reprism/scripts/generate_projection.py \
+.venv/bin/python examples/reprism/scripts/generate_calibration.py \
   --output output/reprism
 ```
 
-`--fold 30` or `--fold 54` explores another viewpoint. Use this example generator to change the fold: its exported `render-recipe.json` is flattened geometry for the general renderer, not the authoritative Boolean source. The example's font, colors, proportions, and construction are project-specific choices.
+`--alpha 0.25` or `--alpha 0.75` explores another statistical smoothing gain. The reference frame stays fixed while the inner trace changes. Use this example generator for structural changes: its exported `render-recipe.json` contains flattened geometry, not the authoritative statistical source. The example's font, colors, proportions, and construction are project-specific choices.
 
 ## Verify
 
@@ -82,7 +82,7 @@ Run the general renderer's tests with:
 python -m unittest discover -s brand-design/scripts -p 'test_*.py'
 ```
 
-The Reprism example also includes geometry checks for its fixed axis, foreshortening, topology, clearance, and reproducibility. With its build-time requirements installed, run:
+The Reprism example also includes geometry checks for its reference stability, statistical summaries, target-relative coordinates, topology, clearance, and reproducibility. With its build-time requirements installed, run:
 
 ```sh
 .venv/bin/python -m unittest discover -s examples/reprism/scripts -p 'test_*.py'

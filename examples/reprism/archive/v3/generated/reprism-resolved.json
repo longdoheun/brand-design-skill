@@ -1,0 +1,133 @@
+{
+  "brief": {
+    "applications": [
+      {
+        "height_px": [
+          28,
+          32,
+          40
+        ],
+        "placement": "Web header",
+        "surface": "dark and light"
+      }
+    ],
+    "assumptions": [
+      "A shared-axis fold is a proposed metaphor for observation, not a simulation of an exercise or a measured audience response."
+    ],
+    "audience": "People training with motion tracking and a 3D exercise model.",
+    "avoid": [
+      "Attached arrowhead",
+      "Start-point dot",
+      "Dumbbell pictogram",
+      "Rainbow prism",
+      "Opaque background in the wordmark"
+    ],
+    "name": "Reprism",
+    "philosophies": [
+      {
+        "id": "clarity",
+        "priority": "primary",
+        "statement": "Make movement understandable without visual noise."
+      },
+      {
+        "id": "repetition",
+        "priority": "secondary",
+        "statement": "Observe the same underlying movement consistently."
+      },
+      {
+        "id": "multiple-views",
+        "priority": "primary",
+        "statement": "Read one movement through different views and notice its differences."
+      }
+    ],
+    "preserve": [
+      "Reprism spelling",
+      "Recognizable R",
+      "Mint and dark identity",
+      "See every rep clearly."
+    ],
+    "purpose": "Help people observe, understand, and replay their exercise motion.",
+    "rules": [
+      {
+        "id": "shared-source",
+        "statement": "Both faces must derive from the same geometric R source.",
+        "strength": "hard"
+      },
+      {
+        "id": "source-weight",
+        "statement": "Use equal stem and perpendicular diagonal weight in the source plane; projected weights may foreshorten.",
+        "strength": "hard"
+      },
+      {
+        "id": "fixed-axis",
+        "statement": "The orthographic fold projection must preserve every point on the shared axis.",
+        "strength": "hard"
+      },
+      {
+        "id": "negative-space",
+        "statement": "Use an actual seam between projected faces, with nominal clearance above 1px at a 28px wordmark height.",
+        "strength": "hard"
+      }
+    ],
+    "slug": "reprism",
+    "typography": "Outlined Manrope at weight 700; a project choice rather than a generic default."
+  },
+  "parameter_overrides": {},
+  "parameters": {
+    "arc_segments": 256.0,
+    "axis_deg": -22.0,
+    "counter_radius": 12.0,
+    "fold_deg": 42.0,
+    "output_cap": 72.0,
+    "padding": 2.0,
+    "radius": 24.0,
+    "seam": 3.5999999999999996,
+    "simplify_tolerance": 0.008,
+    "source_cap": 72.0,
+    "stroke": 12.0,
+    "tracking": -1.0,
+    "type_weight": 700.0,
+    "unit": 6.0,
+    "word_gap": 6.0
+  },
+  "rationale": [
+    {
+      "check": "Verify fixed points and normal foreshortening of the projection; inspect the silhouette.",
+      "observable_result": "The upper counter and rim change with the view while the lower face remains stable.",
+      "parameters": [
+        "axis_deg",
+        "fold_deg",
+        "radius"
+      ],
+      "philosophy": "multiple-views",
+      "rule": "Use front and folded projections of exactly the same source across a fixed axis.",
+      "status": "implemented"
+    },
+    {
+      "check": "Both faces must derive from source and affine_transform(source,matrix).",
+      "observable_result": "One recognizable R with related faces.",
+      "parameters": [
+        "unit",
+        "stroke",
+        "source_cap"
+      ],
+      "philosophy": "repetition",
+      "rule": "Reuse the complete geometric source for both observations rather than drawing a second unrelated glyph.",
+      "status": "implemented"
+    },
+    {
+      "check": "Exactly two valid faces; nominal clearance above 1px at 28px, followed by browser review.",
+      "observable_result": "The folded relationship survives single-color reproduction at header sizes.",
+      "parameters": [
+        "seam",
+        "padding",
+        "output_cap"
+      ],
+      "philosophy": "clarity",
+      "rule": "Separate views with a controlled negative seam and preserve a readable counter.",
+      "status": "implemented"
+    }
+  ],
+  "recipe_sha256": "4f2df5cbb596f97db559489d9a97c08ef32306e7116db030cda6dec4ee36a08a",
+  "unresolved_philosophies": []
+}

@@ -12,32 +12,32 @@
       }
     ],
     "assumptions": [
-      "A shared-axis fold is a proposed metaphor for observation, not a simulation of an exercise or a measured audience response."
+      "The logo expresses data-informed support; audience interpretation remains a design judgment."
     ],
-    "audience": "People training with motion tracking and a 3D exercise model.",
+    "audience": "People who want training assistance and data-informed improvement.",
     "avoid": [
       "Attached arrowhead",
-      "Start-point dot",
-      "Dumbbell pictogram",
-      "Rainbow prism",
-      "Opaque background in the wordmark"
+      "Literal chart or dumbbell icon",
+      "Clinical badge",
+      "Decorative 3D fold",
+      "Construction guides in production artwork"
     ],
     "name": "Reprism",
     "philosophies": [
       {
-        "id": "clarity",
+        "id": "training-support",
         "priority": "primary",
-        "statement": "Make movement understandable without visual noise."
+        "statement": "Provide a stable reference that supports a person's training."
       },
       {
-        "id": "repetition",
-        "priority": "secondary",
-        "statement": "Observe the same underlying movement consistently."
+        "id": "accumulated-evidence",
+        "priority": "primary",
+        "statement": "Summarize repeated records instead of reacting to one isolated observation."
       },
       {
-        "id": "multiple-views",
+        "id": "guided-improvement",
         "priority": "primary",
-        "statement": "Read one movement through different views and notice its differences."
+        "statement": "Connect measured differences to an understandable next adjustment."
       }
     ],
     "preserve": [
@@ -46,88 +46,88 @@
       "Mint and dark identity",
       "See every rep clearly."
     ],
-    "purpose": "Help people observe, understand, and replay their exercise motion.",
+    "purpose": "Support exercise decisions through measured movement, accumulated records, and interpretable statistical feedback.",
     "rules": [
       {
-        "id": "shared-source",
-        "statement": "Both faces must derive from the same geometric R source.",
+        "id": "stable-reference",
+        "statement": "Record inputs and statistical gain may change the inner trace but must leave the outer R reference unchanged.",
         "strength": "hard"
       },
       {
-        "id": "source-weight",
-        "statement": "Use equal stem and perpendicular diagonal weight in the source plane; projected weights may foreshorten.",
+        "id": "traceable-summary",
+        "statement": "Use an explicitly computed statistical summary to construct the internal curve.",
         "strength": "hard"
       },
       {
-        "id": "fixed-axis",
-        "statement": "The orthographic fold projection must preserve every point on the shared axis.",
+        "id": "visible-comparison",
+        "statement": "Maintain at least 1px nominal trace weight and curved-lane clearance at a 28px wordmark height.",
         "strength": "hard"
       },
       {
-        "id": "negative-space",
-        "statement": "Use an actual seam between projected faces, with nominal clearance above 1px at a 28px wordmark height.",
+        "id": "honest-metaphor",
+        "statement": "Label the numerical inputs as illustrative design values, without implying clinical validation or actual exercise outcomes.",
         "strength": "hard"
       }
     ],
     "slug": "reprism",
-    "typography": "Outlined Manrope at weight 700; a project choice rather than a generic default."
+    "typography": "Outlined Manrope 700."
   },
   "parameter_overrides": {},
   "parameters": {
-    "arc_segments": 256.0,
-    "axis_deg": -22.0,
-    "counter_radius": 12.0,
-    "fold_deg": 42.0,
-    "output_cap": 72.0,
+    "arc_segments": 384.0,
+    "counter_radius": 18.0,
+    "leg_tip_x": 63.0,
+    "minimum_lane_gap": 4.0,
     "padding": 2.0,
-    "radius": 24.0,
-    "seam": 3.5999999999999996,
-    "simplify_tolerance": 0.008,
+    "radius": 27.0,
+    "record_stroke": 4.0,
+    "simplify_tolerance": 0.006,
+    "smoothing_alpha": 0.5,
     "source_cap": 72.0,
-    "stroke": 12.0,
+    "stroke": 9.0,
+    "target_radius": 12.0,
     "tracking": -1.0,
     "type_weight": 700.0,
-    "unit": 6.0,
+    "unit": 3.0,
     "word_gap": 6.0
   },
   "rationale": [
     {
-      "check": "Verify fixed points and normal foreshortening of the projection; inspect the silhouette.",
-      "observable_result": "The upper counter and rim change with the view while the lower face remains stable.",
-      "parameters": [
-        "axis_deg",
-        "fold_deg",
-        "radius"
-      ],
-      "philosophy": "multiple-views",
-      "rule": "Use front and folded projections of exactly the same source across a fixed axis.",
-      "status": "implemented"
-    },
-    {
-      "check": "Both faces must derive from source and affine_transform(source,matrix).",
-      "observable_result": "One recognizable R with related faces.",
+      "check": "Changing records must not change the reference geometry.",
+      "observable_result": "A steady outer R supports the internal record.",
       "parameters": [
         "unit",
+        "radius",
         "stroke",
         "source_cap"
       ],
-      "philosophy": "repetition",
-      "rule": "Reuse the complete geometric source for both observations rather than drawing a second unrelated glyph.",
+      "philosophy": "training-support",
+      "rule": "Hold the reference frame fixed as observation values and smoothing vary.",
       "status": "implemented"
     },
     {
-      "check": "Exactly two valid faces; nominal clearance above 1px at 28px, followed by browser review.",
-      "observable_result": "The folded relationship survives single-color reproduction at header sizes.",
+      "check": "Verify the summary independently and that it drives actual curve coordinates.",
+      "observable_result": "The inner trace summarizes multiple records rather than tracing raw inputs.",
       "parameters": [
-        "seam",
-        "padding",
-        "output_cap"
+        "smoothing_alpha"
       ],
-      "philosophy": "clarity",
-      "rule": "Separate views with a controlled negative seam and preserve a readable counter.",
+      "philosophy": "accumulated-evidence",
+      "rule": "Use an exponential moving average of an illustrative observation sequence.",
+      "status": "implemented"
+    },
+    {
+      "check": "Validate target-minus-summary radii, genuine lane clearance, and a readable mono symbol.",
+      "observable_result": "The trace approaches its target as the illustrated summary deviation decreases.",
+      "parameters": [
+        "target_radius",
+        "minimum_lane_gap",
+        "record_stroke"
+      ],
+      "philosophy": "guided-improvement",
+      "rule": "Express differences relative to a fixed target inside the reference envelope.",
       "status": "implemented"
     }
   ],
-  "recipe_sha256": "4f2df5cbb596f97db559489d9a97c08ef32306e7116db030cda6dec4ee36a08a",
+  "recipe_sha256": "fe2a8ce4f63dead1652d366c76661028e294b2437bfdbda8a8314c1f06fe3555",
   "unresolved_philosophies": []
 }
