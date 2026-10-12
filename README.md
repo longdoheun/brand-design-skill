@@ -1,27 +1,36 @@
 # Brand Design Skill
 
-Reprism 로고 설계 과정에서 만든 독립형 Codex 스킬입니다. 현재 브랜드 프로필은 **`reprism-brand`**이며, 공통 기하학 설계 원칙과 브랜드별 수치를 분리했습니다.
+브랜드 철학과 기하학 규칙을 입력받아 벡터 로고를 설계·변주하는 범용 Codex 스킬입니다. **Reprism은 `examples/reprism/`의 디자인 예시**로 분리했습니다. 공통 스킬에는 R, 민트 색상, 특정 폰트·그리드·각도를 기본값으로 넣지 않습니다.
 
-- [스킬](reprism-brand/SKILL.md): 사용 조건, 제작·검증 흐름
-- [기하학 설계 원칙](reprism-brand/references/geometric-construction.md): Google·Pentagram·IBM의 원문 사례와 적용 기준
-- [Reprism 브랜드 규칙](reprism-brand/references/identity.md): 색상, 실제 구성 좌표, 타이포그래피, 여백
-- [제작 도구](reprism-brand/scripts/generate_wordmark.py): 동일한 좌표로 SVG 로고와 구성도 재생성
-- [SVG 자산](reprism-brand/assets/logos/): 심볼·워드마크 각각 4종과 구성도
+- [범용 스킬](brand-design/SKILL.md): 철학 → 도형 연산 → 변수 → 시각 효과 → 검증
+- [입력 형식](brand-design/references/brief-contract.md): 자연어 요청을 구조화하는 기준
+- [기하학 설계 원칙](brand-design/references/geometric-construction.md): Google·Pentagram·IBM의 원문 사례
+- [생성 레시피](brand-design/references/recipe-contract.md): 변수·수식·도형·변환·팔레트·의미 연결
+- [Reprism 사례](examples/reprism/case-study.md): 입력, 레시피, 라이선스, 기존 시안과 구현 한계
 
 ## 사용
 
-`reprism-brand` 폴더 전체를 Codex의 사용자 스킬 디렉터리에 설치한 후 `$reprism-brand`로 사용할 수 있습니다. 별도 Reprism 저장소나 작성자의 로컬 경로에 의존하지 않습니다. 일반적인 기하학 원칙은 다른 브랜드에도 참고할 수 있지만, Reprism의 색상·수치를 다른 브랜드에 강제하지 않습니다.
+`brand-design` 폴더 전체를 Codex의 사용자 스킬 디렉터리에 설치한 후 `$brand-design`로 사용합니다. 예시 폴더나 Reprism 웹 프로젝트가 없어도 사용할 수 있습니다. 별도 브랜드별 스킬을 만들지 않고, 새 브리프와 레시피로 변주합니다.
 
-SVG 파일 사용에는 Python이나 폰트 설치가 필요 없습니다. 자산을 다시 생성할 때만 Python 3.10+의 격리 환경에 `fonttools==4.65.0`을 설치하고 실행합니다.
+예를 들어:
+
+> $brand-design 브랜드명은 …, 철학은 탐구·점진적인 발견·차분함. 규칙은 공통 그리드와 의미 있는 여백을 사용할 것. 책·전구 아이콘은 피하고 32px 웹 헤더에서 쓸 로고를 개방적인 형태와 압축적인 형태로 변주해줘.
+
+사용자는 자연어로 입력해도 됩니다. 스킬이 설계 결정을 정리하고, 도형 생성 도구가 명시된 레시피를 실행합니다. 도구가 의미나 미적 품질을 자동 판정하는 것은 아닙니다.
+
+범용 심볼 생성기는 Python 3.10+ 표준 라이브러리만 사용합니다. 폰트 설치나 네트워크 요청 없이 실행됩니다:
 
 ```sh
-python reprism-brand/scripts/generate_wordmark.py --output /your/output/directory
+python brand-design/scripts/render_geometry.py \
+  --brief examples/reprism/brief.json \
+  --recipe examples/reprism/recipe.json \
+  --output /your/output/directory
 ```
 
-폰트는 공식 Google Fonts의 Manrope를 포함했으며, 원본 SHA-256을 검사합니다. [폰트 라이선스](reprism-brand/assets/fonts/OFL.txt)와 FONTLOG를 함께 보존합니다. 다운로드나 글꼴 설치 없이 다른 작업 디렉터리에서도 동일하게 재생성됩니다.
+같은 변수로 심볼·구성도·해석된 변수 및 철학 연결 기록을 생성합니다. 워드마크의 폰트 선택·경로화는 별도 제작 단계입니다. 예시에 보존된 기존 워드마크 제작 도구만 FontTools 4.65.0과 Manrope를 사용하며, [폰트 라이선스](examples/reprism/assets/fonts/OFL.txt)를 함께 보존합니다.
 
-## 현재 시안
+## Reprism 디자인 예시
 
-R은 6단위 그리드, 12단위 일정 두께, 24/12 반지름, 45° 대각선과 일체형 화살표로 구성했습니다. 실제 앱 아이콘과 웹사이트 헤더 배치 변경은 별도 작업입니다.
+6단위 그리드·일정 두께·원호·45° 대각선을 사용한 기하학적 R의 기준 시안입니다. 이후 논의한 여러 관점의 투영 철학은 아직 구현되지 않았으므로 레시피와 생성 기록에 미완료로 표시합니다. 이 시안의 수치를 다른 브랜드에 강제하지 않습니다.
 
-![Reprism 기하학적 R 시안](preview.png)
+![Reprism 기하학적 R 시안](examples/reprism/preview.png)

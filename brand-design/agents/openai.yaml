@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brand Design"
+  short_description: "Turn brand philosophy into reproducible geometric logos"
+  default_prompt: "Use $brand-design to create logo directions from my brand philosophy and geometric rules."

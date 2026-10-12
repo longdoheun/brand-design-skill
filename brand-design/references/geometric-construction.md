@@ -1,6 +1,6 @@
 # Geometric logo construction
 
-Read this when a symbol needs coherent geometry or a visible construction rationale. These principles can inform other brands; Reprism's exact measurements belong to its own identity reference.
+Read this when a symbol needs coherent geometry or a visible construction rationale. Brand-specific measurements belong in that project's brief and recipe, not in these shared principles.
 
 ## Reference evidence
 

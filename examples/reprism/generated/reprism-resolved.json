@@ -1,0 +1,132 @@
+{
+  "brief": {
+    "applications": [
+      {
+        "height_px": [
+          28,
+          32,
+          40
+        ],
+        "placement": "Web header",
+        "surface": "dark and light"
+      }
+    ],
+    "assumptions": [
+      "The geometric R is a baseline study, not a completed multiple-viewpoint identity."
+    ],
+    "audience": "People observing and improving their own exercise movement.",
+    "avoid": [
+      "Dumbbell pictogram",
+      "Rainbow prism",
+      "A decorative grid unrelated to source geometry"
+    ],
+    "name": "Reprism",
+    "palette": {
+      "light_surface_ink": "#147A55",
+      "mint": "#66E2A6"
+    },
+    "philosophies": [
+      {
+        "id": "clarity",
+        "priority": "primary",
+        "statement": "Make movement legible without visual noise."
+      },
+      {
+        "id": "repetition",
+        "priority": "secondary",
+        "statement": "Retain a recognizable repetition and direction motif."
+      },
+      {
+        "id": "multiple-views",
+        "priority": "primary",
+        "statement": "Read the same movement from several viewpoints."
+      }
+    ],
+    "preserve": [
+      "Reprism spelling",
+      "Recognizable R",
+      "Mint and dark identity"
+    ],
+    "purpose": "Make exercise motion observable and understandable through tracking and replay.",
+    "rules": [
+      {
+        "id": "shared-grid",
+        "statement": "Derive the geometric study from one base unit.",
+        "strength": "hard"
+      },
+      {
+        "id": "constant-weight",
+        "statement": "Use equal stem and perpendicular diagonal widths.",
+        "strength": "hard"
+      },
+      {
+        "id": "single-source-projection",
+        "statement": "Explore counter geometry derived from transformed views of one source curve.",
+        "strength": "exploratory"
+      }
+    ],
+    "slug": "reprism",
+    "typography": "Manrope 700 in the archived wordmark study; not a generic skill default."
+  },
+  "parameter_overrides": {},
+  "parameters": {
+    "arrow_side": 18.0,
+    "arrow_tip_x": 54.0,
+    "arrow_tip_y": 72.0,
+    "cap": 72.0,
+    "cx": 24.0,
+    "cy": 24.0,
+    "inner_radius": 12.0,
+    "leg_end_x": 48.0,
+    "leg_end_y": 66.0,
+    "leg_offset": 4.242640687119285,
+    "leg_start_x": 24.0,
+    "leg_start_y": 42.0,
+    "outer_radius": 24.0,
+    "padding": 2.0,
+    "point_radius": 3.0,
+    "stem": 12.0,
+    "unit": 6.0
+  },
+  "rationale": [
+    {
+      "check": "Check stroke equality numerically; inspect counter and joins at 28/32/40px.",
+      "observable_result": "An uncluttered R with a deliberate counter.",
+      "parameters": [
+        "unit",
+        "stem",
+        "outer_radius",
+        "inner_radius"
+      ],
+      "philosophy": "clarity",
+      "rule": "Use shared circular geometry and constant stroke weight.",
+      "status": "implemented"
+    },
+    {
+      "check": "Inspect the silhouette in one color; do not assume the arrow alone communicates repeated cycles.",
+      "observable_result": "One directional silhouette rather than a separately attached arrow.",
+      "parameters": [
+        "leg_start_x",
+        "leg_start_y",
+        "leg_end_x",
+        "leg_end_y",
+        "arrow_side"
+      ],
+      "philosophy": "repetition",
+      "rule": "Join the diagonal band to an integrated directional terminal.",
+      "status": "implemented"
+    },
+    {
+      "check": "A later recipe must show actual shared-source projection before this mapping can be marked implemented.",
+      "observable_result": "Not implemented in this baseline study.",
+      "parameters": [],
+      "philosophy": "multiple-views",
+      "rule": "Derive counter geometry from transformed views of one source curve.",
+      "status": "pending"
+    }
+  ],
+  "recipe_sha256": "e1aba1ad54a6077eec66e0243811b9efdb4463708e79567b1abfb40a4825424d",
+  "unresolved_philosophies": [
+    "multiple-views"
+  ]
+}

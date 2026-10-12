@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "parameters": {
+    "unit": 6,
+    "padding": 2,
+    "stem": "2*unit",
+    "outer_radius": "4*unit",
+    "inner_radius": "outer_radius-stem",
+    "cx": "outer_radius",
+    "cy": "outer_radius",
+    "cap": "12*unit",
+    "leg_start_x": "4*unit",
+    "leg_start_y": "7*unit",
+    "leg_end_x": "8*unit",
+    "leg_end_y": "11*unit",
+    "leg_offset": "stem/2/sqrt(2)",
+    "arrow_tip_x": "9*unit",
+    "arrow_tip_y": "cap",
+    "arrow_side": "3*unit",
+    "point_radius": "unit/2"
+  },
+  "view_box": [0, 0, "arrow_tip_x+2*padding", "cap+2*padding"],
+  "variants": {
+    "primary": { "ink": "#66E2A6", "detail": "#F4FFF9" },
+    "light": { "ink": "#147A55", "detail": "#172129" },
+    "mono": { "ink": "#172129", "detail": "#172129" },
+    "inverse": { "ink": "#F4F7F6", "detail": "#F4F7F6" }
+  },
+  "shapes": [
+    {
+      "tag": "g",
+      "transform": [{ "translate": ["padding", "padding"] }],
+      "children": [
+        {
+          "tag": "path",
+          "attrs": {
+            "fill": "@ink",
+            "fill-rule": "evenodd",
+            "d": "M0 0H{cx}A{outer_radius} {outer_radius} 0 0 1 {cx} {cy+outer_radius}H{stem}V{cap}H0Z M{stem} {cy-inner_radius}V{cy+inner_radius}H{cx}A{inner_radius} {inner_radius} 0 0 0 {cx} {cy-inner_radius}Z"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "fill": "@ink",
+            "d": "M{leg_start_x-leg_offset} {leg_start_y+leg_offset}L{leg_start_x+leg_offset} {leg_start_y-leg_offset}L{leg_end_x+leg_offset} {leg_end_y-leg_offset}L{leg_end_x-leg_offset} {leg_end_y+leg_offset}Z"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "fill": "@ink",
+            "d": "M{arrow_tip_x} {arrow_tip_y-arrow_side}V{arrow_tip_y}H{arrow_tip_x-arrow_side}Z"
+          }
+        },
+        {
+          "tag": "circle",
+          "attrs": {
+            "cx": "unit",
+            "cy": "unit",
+            "r": "point_radius",
+            "fill": "@detail"
+          }
+        }
+      ]
+    }
+  ],
+  "guides": [
+    {
+      "tag": "g",
+      "attrs": {
+        "fill": "none",
+        "stroke": "@guide",
+        "stroke-width": "unit/20",
+        "stroke-dasharray": "{unit/6} {unit/6}"
+      },
+      "transform": [{ "translate": ["padding", "padding"] }],
+      "children": [
+        {
+          "tag": "circle",
+          "attrs": { "cx": "cx", "cy": "cy", "r": "outer_radius" }
+        },
+        {
+          "tag": "circle",
+          "attrs": { "cx": "cx", "cy": "cy", "r": "inner_radius" }
+        },
+        {
+          "tag": "line",
+          "attrs": {
+            "x1": "leg_start_x",
+            "y1": "leg_start_y",
+            "x2": "arrow_tip_x",
+            "y2": "arrow_tip_y"
+          }
+        }
+      ]
+    }
+  ],
+  "rationale": [
+    {
+      "philosophy": "clarity",
+      "rule": "Use shared circular geometry and constant stroke weight.",
+      "parameters": ["unit", "stem", "outer_radius", "inner_radius"],
+      "observable_result": "An uncluttered R with a deliberate counter.",
+      "check": "Check stroke equality numerically; inspect counter and joins at 28/32/40px.",
+      "status": "implemented"
+    },
+    {
+      "philosophy": "repetition",
+      "rule": "Join the diagonal band to an integrated directional terminal.",
+      "parameters": [
+        "leg_start_x",
+        "leg_start_y",
+        "leg_end_x",
+        "leg_end_y",
+        "arrow_side"
+      ],
+      "observable_result": "One directional silhouette rather than a separately attached arrow.",
+      "check": "Inspect the silhouette in one color; do not assume the arrow alone communicates repeated cycles.",
+      "status": "implemented"
+    },
+    {
+      "philosophy": "multiple-views",
+      "rule": "Derive counter geometry from transformed views of one source curve.",
+      "parameters": [],
+      "observable_result": "Not implemented in this baseline study.",
+      "check": "A later recipe must show actual shared-source projection before this mapping can be marked implemented.",
+      "status": "pending"
+    }
+  ]
+}

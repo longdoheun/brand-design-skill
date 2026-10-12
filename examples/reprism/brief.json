@@ -1,0 +1,58 @@
+{
+  "name": "Reprism",
+  "slug": "reprism",
+  "purpose": "Make exercise motion observable and understandable through tracking and replay.",
+  "audience": "People observing and improving their own exercise movement.",
+  "philosophies": [
+    {
+      "id": "clarity",
+      "statement": "Make movement legible without visual noise.",
+      "priority": "primary"
+    },
+    {
+      "id": "repetition",
+      "statement": "Retain a recognizable repetition and direction motif.",
+      "priority": "secondary"
+    },
+    {
+      "id": "multiple-views",
+      "statement": "Read the same movement from several viewpoints.",
+      "priority": "primary"
+    }
+  ],
+  "rules": [
+    {
+      "id": "shared-grid",
+      "statement": "Derive the geometric study from one base unit.",
+      "strength": "hard"
+    },
+    {
+      "id": "constant-weight",
+      "statement": "Use equal stem and perpendicular diagonal widths.",
+      "strength": "hard"
+    },
+    {
+      "id": "single-source-projection",
+      "statement": "Explore counter geometry derived from transformed views of one source curve.",
+      "strength": "exploratory"
+    }
+  ],
+  "preserve": ["Reprism spelling", "Recognizable R", "Mint and dark identity"],
+  "avoid": [
+    "Dumbbell pictogram",
+    "Rainbow prism",
+    "A decorative grid unrelated to source geometry"
+  ],
+  "applications": [
+    {
+      "placement": "Web header",
+      "surface": "dark and light",
+      "height_px": [28, 32, 40]
+    }
+  ],
+  "palette": { "mint": "#66E2A6", "light_surface_ink": "#147A55" },
+  "typography": "Manrope 700 in the archived wordmark study; not a generic skill default.",
+  "assumptions": [
+    "The geometric R is a baseline study, not a completed multiple-viewpoint identity."
+  ]
+}
