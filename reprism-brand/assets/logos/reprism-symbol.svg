@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 76" role="img" aria-labelledby="title desc">
+<title id="title">Reprism</title>
+<desc id="desc">Geometric repetition-arrow R</desc>
+<g transform="translate(2 2)"><g fill="#66E2A6"><path fill-rule="evenodd" d="M0 0H24A24 24 0 0 1 24 48H12V72H0Z M12 12V36H24A12 12 0 0 0 24 12Z"/><path d="M19.757 46.243L28.243 37.757L52.243 61.757L43.757 70.243Z"/><path d="M54 54V72H36Z"/></g><circle cx="6" cy="6" r="3" fill="#F4FFF9"/></g>
+</svg>

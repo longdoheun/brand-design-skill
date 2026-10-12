@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Reprism Brand'
+  short_description: 'Design Reprism logos and wordmarks with consistent identity'
+  default_prompt: 'Use $reprism-brand to design a Reprism wordmark for a web header.'

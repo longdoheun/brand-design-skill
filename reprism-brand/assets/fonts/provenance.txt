@@ -1,0 +1,5 @@
+Manrope variable font, weight range 200–800
+Source: https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/Manrope%5Bwght%5D.ttf
+Retrieved: 2026-10-12
+SHA-256: 3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6
+Outlined at weight 700 using fonttools 4.65.0; see OFL.txt and FONTLOG.txt.
