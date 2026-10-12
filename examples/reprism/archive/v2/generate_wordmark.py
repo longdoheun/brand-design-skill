@@ -20,8 +20,8 @@ except ImportError:
     raise SystemExit("Install build-time fonttools==4.65.0 in an isolated Python environment.")
 
 
-SKILL = Path(__file__).resolve().parents[1]
-FONT = SKILL / "assets/fonts/Manrope.ttf"
+SKILL = Path(__file__).resolve().parent
+FONT = Path(__file__).resolve().parents[2] / "assets/fonts/Manrope.ttf"
 FONT_HASH = "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
 
 
@@ -115,6 +115,6 @@ def generate(output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=SKILL / "assets/logos")
+    parser.add_argument("--output", type=Path, default=SKILL / "logos")
     args = parser.parse_args()
     generate(args.output.resolve())

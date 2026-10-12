@@ -1,36 +1,97 @@
 # Brand Design Skill
 
-브랜드 철학과 기하학 규칙을 입력받아 벡터 로고를 설계·변주하는 범용 Codex 스킬입니다. **Reprism은 `examples/reprism/`의 디자인 예시**로 분리했습니다. 공통 스킬에는 R, 민트 색상, 특정 폰트·그리드·각도를 기본값으로 넣지 않습니다.
+A Codex skill for developing vector logos from brand philosophy, geometric constraints, and practical usage requirements.
 
-- [범용 스킬](brand-design/SKILL.md): 철학 → 도형 연산 → 변수 → 시각 효과 → 검증
-- [입력 형식](brand-design/references/brief-contract.md): 자연어 요청을 구조화하는 기준
-- [기하학 설계 원칙](brand-design/references/geometric-construction.md): Google·Pentagram·IBM의 원문 사례
-- [생성 레시피](brand-design/references/recipe-contract.md): 변수·수식·도형·변환·팔레트·의미 연결
-- [Reprism 사례](examples/reprism/case-study.md): 입력, 레시피, 라이선스, 기존 시안과 구현 한계
+The workflow connects **intent → geometric operation → parameters → visual result → verification**. It helps keep construction logic reproducible while leaving room for optical judgment. No brand name, letter, palette, typeface, or proportion is built into the general workflow.
 
-## 사용
+## What is included
 
-`brand-design` 폴더 전체를 Codex의 사용자 스킬 디렉터리에 설치한 후 `$brand-design`로 사용합니다. 예시 폴더나 Reprism 웹 프로젝트가 없어도 사용할 수 있습니다. 별도 브랜드별 스킬을 만들지 않고, 새 브리프와 레시피로 변주합니다.
+- **[Design skill](brand-design/SKILL.md):** guidance for turning a brief into a shape grammar, exploring variations, and reviewing the result.
+- **[Brief format](brand-design/references/brief-contract.md):** how to separate philosophies, hard constraints, exploratory rules, and assumptions.
+- **[Geometry renderer](brand-design/scripts/render_geometry.py):** a dependency-free Python tool for parameterized SVG primitives, compound paths, affine transformations, and construction guides.
+- **[Recipe format](brand-design/references/recipe-contract.md):** supported expressions, shapes, palettes, and recorded rationale.
+- **[Reprism example](examples/reprism/case-study.md):** a complete worked design study with source parameters, a Boolean geometry extension, outlined typography, and generated assets.
 
-예를 들어:
+## Install in Codex
 
-> $brand-design 브랜드명은 …, 철학은 탐구·점진적인 발견·차분함. 규칙은 공통 그리드와 의미 있는 여백을 사용할 것. 책·전구 아이콘은 피하고 32px 웹 헤더에서 쓸 로고를 개방적인 형태와 압축적인 형태로 변주해줘.
+Clone this repository and copy the `brand-design` directory into your user skills directory: `$CODEX_HOME/skills` if configured, otherwise `~/.codex/skills`.
 
-사용자는 자연어로 입력해도 됩니다. 스킬이 설계 결정을 정리하고, 도형 생성 도구가 명시된 레시피를 실행합니다. 도구가 의미나 미적 품질을 자동 판정하는 것은 아닙니다.
+```sh
+git clone https://github.com/longdoheun/brand-design-skill.git
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R brand-design-skill/brand-design "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
 
-범용 심볼 생성기는 Python 3.10+ 표준 라이브러리만 사용합니다. 폰트 설치나 네트워크 요청 없이 실행됩니다:
+Invoke it as `$brand-design`. The installed skill does not depend on the example directory. When updating an existing installation, replace the installed skill with the latest version rather than mixing files from different versions.
+
+## Start a design
+
+Provide a short brief in ordinary language; structured JSON is optional. Include the brand name, a few design philosophies, geometric rules, and intended applications. Existing assets and things to preserve or avoid are useful when revising a brand.
+
+```text
+$brand-design
+Brand: A new learning platform
+Philosophies: Curiosity, gradual discovery, calm confidence
+Rules: Use a shared grid and meaningful negative space
+Application: A 32px web header, on light and dark surfaces
+Avoid: Book and lightbulb pictograms
+Explore: An open form and a more compact form, with an outlined wordmark
+```
+
+The skill guides the design reasoning. The renderer executes an explicit geometry recipe; it does not infer symbolism or judge aesthetic quality automatically.
+
+## Generate and vary geometry
+
+The general renderer requires **Python 3.10+**, with no additional packages or network access. Supply your own brief and recipe:
 
 ```sh
 python brand-design/scripts/render_geometry.py \
-  --brief examples/reprism/brief.json \
-  --recipe examples/reprism/recipe.json \
-  --output /your/output/directory
+  --brief path/to/brief.json \
+  --recipe path/to/recipe.json \
+  --output output/base
 ```
 
-같은 변수로 심볼·구성도·해석된 변수 및 철학 연결 기록을 생성합니다. 워드마크의 폰트 선택·경로화는 별도 제작 단계입니다. 예시에 보존된 기존 워드마크 제작 도구만 FontTools 4.65.0과 Manrope를 사용하며, [폰트 라이선스](examples/reprism/assets/fonts/OFL.txt)를 함께 보존합니다.
+Use repeatable `--set NAME=EXPRESSION` arguments to vary existing adjustable parameters. For example, a recipe with an `angle` parameter can be explored with `--set angle=15 --output output/view-15`. Check the brief's hard constraints before changing a parameter.
 
-## Reprism 디자인 예시
+Outputs include palette variants, a separate construction SVG, and a JSON manifest of resolved parameters and philosophy mappings. Mappings that are missing or pending remain explicitly unresolved. Rendered inspection is still necessary to assess counters, clipping, optical weight, and small-size legibility.
 
-6단위 그리드·일정 두께·원호·45° 대각선을 사용한 기하학적 R의 기준 시안입니다. 이후 논의한 여러 관점의 투영 철학은 아직 구현되지 않았으므로 레시피와 생성 기록에 미완료로 표시합니다. 이 시안의 수치를 다른 브랜드에 강제하지 않습니다.
+## Reprism: shared-axis projection
 
-![Reprism 기하학적 R 시안](examples/reprism/preview.png)
+Reprism is a worked example of an exercise motion-tracking and replay brand. Its symbol derives two views of the **same R source**, joined around a shared axis. An orthographic fold changes the upper counter and rim, while a controlled negative seam keeps the views distinct in monochrome. The finished signature contains no construction guides, attached arrow, or start-point decoration.
+
+![Reprism shared-axis projection wordmark](examples/reprism/preview.png)
+
+See the [case study](examples/reprism/case-study.md), [design parameters](examples/reprism/design.json), and [generated SVGs](examples/reprism/generated/). The previous geometric baseline is preserved in `examples/reprism/archive/v2/`.
+
+This example uses Boolean geometry and font outlining beyond the general renderer. To reproduce it, install its build-time requirements in a virtual environment:
+
+```sh
+python -m venv .venv
+.venv/bin/python -m pip install -r examples/reprism/requirements.txt
+.venv/bin/python examples/reprism/scripts/generate_projection.py \
+  --output output/reprism
+```
+
+`--fold 30` or `--fold 54` explores another viewpoint. Use this example generator to change the fold: its exported `render-recipe.json` is flattened geometry for the general renderer, not the authoritative Boolean source. The example's font, colors, proportions, and construction are project-specific choices.
+
+## Verify
+
+Run the general renderer's tests with:
+
+```sh
+python -m unittest discover -s brand-design/scripts -p 'test_*.py'
+```
+
+The Reprism example also includes geometry checks for its fixed axis, foreshortening, topology, clearance, and reproducibility. With its build-time requirements installed, run:
+
+```sh
+.venv/bin/python -m unittest discover -s examples/reprism/scripts -p 'test_*.py'
+```
+
+These checks verify construction properties; they do not establish how an audience interprets the logo. The example is a proposed identity asset, not an application deployment.
+
+## References and font attribution
+
+The skill's [construction reference](brand-design/references/geometric-construction.md) links to primary design cases from Google, Pentagram, and IBM. They are references, not affiliated brands or reusable proprietary artwork.
+
+The Reprism wordmark uses Manrope, distributed under the [SIL Open Font License](examples/reprism/assets/fonts/OFL.txt). Its font source, FONTLOG, and SHA-256 provenance are included with the example. Runtime SVG usage requires no font installation.

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reprism — Shared-axis projection</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #0b0e12;
+        color: #f4f7f6;
+        font-family: system-ui, sans-serif;
+      }
+      main {
+        max-width: 1080px;
+        margin: auto;
+        padding: 40px;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #8d9aa6;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #26313b;
+      }
+      .header img {
+        height: 32px;
+        width: auto;
+      }
+      .hero {
+        padding: 64px 0 48px;
+      }
+      .hero img {
+        width: min(100%, 640px);
+        height: auto;
+        display: block;
+      }
+      h1 {
+        font-size: 23px;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin: 28px 0 10px;
+      }
+      p {
+        color: #8d9aa6;
+        font-size: 14px;
+        line-height: 1.65;
+        margin: 0;
+      }
+      .process {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .step {
+        padding: 26px;
+        background: #12171d;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .step img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+      }
+      .step strong {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .step p {
+        font-size: 12px;
+      }
+      .variants {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .variant {
+        min-height: 140px;
+        background: #12171d;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .variant.light {
+        background: #f4f7f6;
+        color: #172129;
+      }
+      .variant img {
+        width: min(100%, 280px);
+        height: auto;
+      }
+      .variant .eyebrow {
+        color: inherit;
+        opacity: 0.6;
+      }
+      .sizes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+        align-items: flex-end;
+        padding-top: 36px;
+      }
+      .size {
+        display: grid;
+        gap: 14px;
+      }
+      .size img {
+        width: auto;
+      }
+      .size .eyebrow {
+        font-size: 10px;
+      }
+      footer {
+        border-top: 1px solid #26313b;
+        margin-top: 36px;
+        padding-top: 22px;
+      }
+      footer p {
+        font-size: 12px;
+      }
+      @media (max-width: 600px) {
+        main {
+          padding: 24px;
+        }
+        .header img {
+          height: 28px;
+        }
+        .header .eyebrow {
+          font-size: 9px;
+        }
+        .hero {
+          padding: 44px 0 32px;
+        }
+        .process {
+          grid-template-columns: 1fr;
+        }
+        .step {
+          display: grid;
+          grid-template-columns: 100px 1fr;
+          gap: 16px;
+        }
+        .step img {
+          grid-row: 1/4;
+          grid-column: 1;
+          height: 112px;
+        }
+        .step .eyebrow,
+        .step strong,
+        .step p {
+          grid-column: 2;
+        }
+        .step strong {
+          margin-top: -10px;
+        }
+        .step p {
+          margin-top: -10px;
+        }
+        .variants {
+          grid-template-columns: 1fr;
+        }
+        .sizes {
+          gap: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <span class="eyebrow">Reprism / Identity 03</span
+        ><img
+          src="generated/reprism-wordmark-primary.svg"
+          alt="Reprism header wordmark"
+        />
+      </div>
+      <section class="hero">
+        <img
+          src="generated/reprism-wordmark-primary.svg"
+          alt="Reprism shared-axis projection wordmark"
+        />
+        <h1>One movement. Multiple views.</h1>
+        <p>
+          Two observations of one geometric source.<br />A shared axis and a
+          measured negative seam form a single, readable signature.
+        </p>
+      </section>
+      <section class="process" aria-label="Construction process">
+        <div class="step">
+          <span class="eyebrow">01 / Source</span
+          ><img
+            src="generated/reprism-source.svg"
+            alt="Circular R source before projection"
+          /><strong>One shared geometry</strong>
+          <p>
+            Related radii, equal source weight,<br />and a single construction
+            model.
+          </p>
+        </div>
+        <div class="step">
+          <span class="eyebrow">02 / Projection</span
+          ><img
+            src="generated/reprism-views.svg"
+            alt="Two views with the same fixed axis"
+          /><strong>Two related viewpoints</strong>
+          <p>A −22° fixed axis.<br />A 42° orthographic fold.</p>
+        </div>
+        <div class="step">
+          <span class="eyebrow">03 / Signature</span
+          ><img
+            src="generated/reprism-symbol-primary.svg"
+            alt="Final Reprism symbol with a negative seam"
+          /><strong>Difference in the negative space</strong>
+          <p>
+            One silhouette with two faces.<br />A real gap, visible in
+            monochrome.
+          </p>
+        </div>
+      </section>
+      <section class="variants" aria-label="Surface variants">
+        <div class="variant">
+          <span class="eyebrow">Primary / Dark</span
+          ><img
+            src="generated/reprism-wordmark-primary.svg"
+            alt="Reprism on a dark surface"
+          />
+        </div>
+        <div class="variant light">
+          <span class="eyebrow">Primary / Light</span
+          ><img
+            src="generated/reprism-wordmark-light.svg"
+            alt="Reprism on a light surface"
+          />
+        </div>
+        <div class="variant">
+          <span class="eyebrow">Mono / Inverse</span
+          ><img
+            src="generated/reprism-wordmark-inverse.svg"
+            alt="Reprism in white"
+          />
+        </div>
+        <div class="variant light">
+          <span class="eyebrow">Mono / Ink</span
+          ><img
+            src="generated/reprism-wordmark-mono.svg"
+            alt="Reprism in dark ink"
+          />
+        </div>
+      </section>
+      <section class="sizes" aria-label="Actual header sizes">
+        <div class="size">
+          <span class="eyebrow">28px / Compact</span
+          ><img
+            src="generated/reprism-wordmark-primary.svg"
+            alt="Reprism at 28px"
+            style="height: 28px"
+          />
+        </div>
+        <div class="size">
+          <span class="eyebrow">32px / Header</span
+          ><img
+            src="generated/reprism-wordmark-primary.svg"
+            alt="Reprism at 32px"
+            style="height: 32px"
+          />
+        </div>
+        <div class="size">
+          <span class="eyebrow">40px / Spacious</span
+          ><img
+            src="generated/reprism-wordmark-primary.svg"
+            alt="Reprism at 40px"
+            style="height: 40px"
+          />
+        </div>
+      </section>
+      <footer>
+        <p>
+          Transparent vector artwork · Outlined Manrope 700 · Reproducible
+          geometry<br />Proposed identity assets. Application navigation and app
+          icons are separate deliverables.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

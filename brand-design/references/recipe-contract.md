@@ -9,6 +9,7 @@ Use repeatable `--set NAME=EXPRESSION` arguments to explore existing parameters 
 - `version`: currently `1`.
 - `parameters`: numeric values or arithmetic expressions referring to other parameters. Resolution is order-independent; unknown names and cycles fail. Allowed operations: `+ - * / **`, unary signs, `sqrt`, `sin`, `cos`, `radians`, and `pi`. Coordinates use SVG's downward-positive y axis. Formulas describe the design, not physical simulation.
 - `view_box`: `[x, y, width, height]`, with positive dimensions. Numeric expressions are allowed. Include safety space; the renderer does not calculate or fix clipping for arbitrary paths.
+- `construction_view_box`: optional bounds for guides that extend beyond the finished silhouette. This changes only the diagram viewport, not the shared coordinates or production viewport.
 - `variants`: named palettes with `#RRGGBB` values. Shape colors use `@palette_key`, or `none`. Each variant must provide the referenced colors.
 - `shapes`: production geometry. Nodes have `tag`, `attrs`, optional `transform`, and, for `g`, `children`. Supported tags: `g`, `path`, `rect`, `circle`, `ellipse`, `line`, `polygon`, `polyline`. Unused SVG features, scripts, arbitrary XML, text, and external resources are rejected.
 - `guides`: construction geometry in the same coordinate system and parameter namespace. Use `@guide` for its color. Production files omit it. The construction file shows production geometry plus these actual guides; its palette is separate from the exported variants.

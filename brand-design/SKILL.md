@@ -32,4 +32,4 @@ Do not deploy, alter application navigation, update app icons, or publish to a r
 
 ## Example boundary
 
-The companion repository's `examples/reprism/` is a labeled geometric study with its brief, recipe, previous wordmark generator, licensed font, and artifacts. It is **not** the generic template or a required dependency. The installed skill works without that folder. Use the example only when explicitly relevant; it is not the completed implementation of every later philosophy discussed for Reprism.
+The companion repository's `examples/reprism/` is a worked shared-axis projection study with its brief, design parameters, scoped Boolean/typographic generator, licensed font, and rendered artifacts. It is **not** the generic template or a required dependency. The installed skill works without that folder. Its design parameters are authoritative; the exported renderer recipe contains flattened paths. Use the example only when relevant, and do not mistake implemented geometry for demonstrated audience interpretation.

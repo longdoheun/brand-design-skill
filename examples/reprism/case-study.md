@@ -1,48 +1,76 @@
-# Reprism identity and reference decisions
+# Reprism — shared-axis projection
 
-## Example status
+Reprism is an exercise motion-tracking and replay application. This proposed web signature expresses **one movement, observed from different viewpoints** through two related faces of a single R source. A controlled negative seam distinguishes the faces without relying on color. It is a logo design study, not exercise simulation or evidence of audience interpretation.
 
-This is the **geometric R baseline study**, preserved as a design example rather than a generic brand template. Its later proposed philosophy of multiple viewpoints has not been implemented in the mark. `brief.json` records that intent; `recipe.json` marks the projection mapping pending. The resolved output must retain that limitation. Geometric consistency is demonstrated here; semantic success is not claimed.
+## From philosophy to geometry
 
-## Observed starting point
+| Intent                                 | Implemented operation                                      | Visible effect                                                        |
+| -------------------------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------- |
+| Observe the same movement consistently | Reuse one parameterized R source for both faces            | A recognizable letter with a common geometric origin                  |
+| Read a movement from different views   | Project one face of the source around a shared, fixed axis | A subtly foreshortened upper rim and counter                          |
+| Make the relationship understandable   | Keep a measured negative seam between faces                | A clean distinction that remains visible in single-color reproduction |
 
-The existing Reprism app mark names its symbol “A flowing R-shaped repetition arrow.” It has a rounded mint R, an open bowl, a diagonal arrow, a white starting dot, and a dark rounded-square app mask. The application uses `#66E2A6`, `#F4F7F6`, and dark surfaces. Its tagline is “See every rep clearly.” No prior formal identity manual was found. The app tile remains a separate asset; the current web proposal refines the R geometry rather than changing the app icon.
+The construction has no attached arrowhead or start-point dot. Mint and the Reprism spelling remain continuous with the application's existing identity. The previous baseline is preserved in `archive/v2/`.
 
-The new interpretation is **a repetition made visible**: the R conveys movement; the start point and clear wordmark support readable tracking. This is a proposed Reprism rationale, not a claim about the original designer's intent. Avoid literal dumbbells, anatomy illustrations, and a rainbow prism within the signature.
+## Source model
 
-## Primary references reviewed on 2026-10-12
+All source dimensions derive from `u=6`:
 
-| Source                                                                                                                                                                            | Principle applied to Reprism                                                                        | Boundary                                                                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| [Linear Brand Guidelines](https://linear.app/brand)                                                                                                                               | Separate wordmark use from compact icon use; leave breathing room; retain one exact brand spelling. | Do not copy its symbol or proprietary lettering.                          |
-| [IBM Design Language: 8-bar](https://www.ibm.com/design/language/ibm-logos/8-bar/)                                                                                                | Judge light/dark weight optically and align using meaningful letter geometry; define clearspace.    | IBM's stripe ratios and minimum dimensions are specific to IBM.           |
-| [Manrope official source](https://github.com/google/fonts/tree/main/ofl/manrope) and [license](https://github.com/google/fonts/blob/main/ofl/manrope/OFL.txt)                     | Use a documented open-source geometric sans; preserve the license and font provenance.              | Manrope is the source typeface, not custom lettering claimed as original. |
-| [Google's geometric construction case](https://design.google/library/evolving-google-identity) and [Pentagram's MIT Media Lab grid](https://www.pentagram.com/work/mit-media-lab) | Build a coherent shape grammar and inspect its optical result.                                      | No borrowed glyphs or claim that mathematical purity guarantees quality.  |
+- Cap height `12u=72` and stem/diagonal weight `2u=12`.
+- Circular bowl radius `4u=24`, centered at `(24,24)`; counter radius `24−12=12`.
+- Diagonal band follows a 45° direction. Its corners use the perpendicular offset `w/(2√2)`, preserving the source weight rather than matching horizontal bounding-box widths.
+- Circular arcs are sampled with 256 segments per semicircle. The maximum source sagitta is below 0.0005 source units; topology-preserving export simplification uses a separate 0.008-unit tolerance.
 
-These are design references, not affiliation or endorsement. Reprism's ratios, colors, and layout choices below are project decisions.
+The finished projected strokes intentionally foreshorten. Equal weight is a property of the source plane, not a claim that every projected section retains the same visible width.
 
-## Full-wordmark construction
+## Shared-axis projection
 
-- Use base unit `u=6`. The cap height is `12u=72`, stem width `2u=12`, bowl center `(4u,4u)=(24,24)`, and concentric radii `4u=24` / `2u=12`. A 45° band of width `2u` joins an integrated right-triangle arrowhead of side `3u=18`. Its tip is `(9u,12u)=(54,72)`.
-- The point is a circle of radius `0.5u=3`, centered at `(u,u)=(6,6)`. All web R elements are filled shapes; no mismatched rounded stroke caps are attached at the leg. Single-color variants keep a continuous silhouette.
-- Follow it with outlined Manrope `eprism`, weight 700. Typography scale is 0.05 (1440-unit cap height → 72). Use a 6-unit optical gap after the R and -1-unit tracking between the remaining glyph advances.
-- Include the p descender and i dot in the viewBox rather than clipping to the cap height. Add a 2-unit internal safety inset.
-- Keep the SVG transparent. Application layout supplies padding and background.
-- Header recommendation: 32 CSS px full artwork height; 28 minimum, 40 for more spacious headers. These are practical tested choices, not industry-wide standards. External clearspace: at least 0.5× cap height on each side.
+Let the axis through the bowl center have unit direction `v`, and perpendicular direction `n`. Orthographic projection of a plane folded by angle `θ` around that axis is:
 
-| Variant | R / arrow        | Type      | Start point | Intended surface |
-| ------- | ---------------- | --------- | ----------- | ---------------- |
-| Primary | `#66E2A6` / same | `#F4F7F6` | `#F4FFF9`   | Dark             |
-| Light   | `#147A55` / same | `#172129` | `#172129`   | Light            |
-| Mono    | `#172129`        | same      | same        | Light / print    |
-| Inverse | `#F4F7F6`        | same      | same        | Dark             |
+```text
+T = v vᵀ + cos(θ) n nᵀ
+p′ = c + T (p − c)
+```
 
-## Source and reproducibility
+The selected axis is −22°, and the fold is 42°. Every point `c+t·v` stays fixed, while displacement along `n` is multiplied by `cos(42°)`. This is a projection of a planar design surface, not a perspective camera model.
 
-This example stores `assets/fonts/Manrope.ttf`, its OFL and FONTLOG, and a SHA-256 source record. The preserved example-only `scripts/generate_wordmark.py` instantiates the variable font at 700 and reproduces the archived wordmarks in `assets/logos/`; it is not a generic brand generator. Python 3.10+ and FontTools 4.65.0 are required only for that historical generator. Delivered SVGs require no font loading or network access.
+The lower face comes from the source; the upper face comes from the projected copy of that same source. They are clipped to opposite half-planes with a symmetric gap of `0.6u=3.6` along `n`. The gap is actual negative geometry, rather than a colored line placed over the logo. The counter changes with the projection because it belongs to the transformed source.
 
-The generic `brand-design/scripts/render_geometry.py` instead reads this example's `brief.json` and parameterized `recipe.json`. Its symbol, guide diagram, and rationale manifest live in `generated/`. It needs only Python 3.10+ and can generate other brands from other recipes. No Reprism-specific value is embedded in the generic engine.
+The result is normalized once to a 72-unit cap height; both faces and their gap receive the same scale. The nominal gap is approximately **1.086 CSS px at a 28px wordmark height**, and **1.241px at 32px**. Actual antialiasing depends on display scale and rendering. Browser review complements these geometric measurements.
 
-`assets/logos/reprism-construction.svg` shows the actual geometric scaffold. The wordmarks and symbols beside it are production files without guides. The construction SVG includes labels; the production signatures contain only vector paths and shapes.
+## Optical selection
 
-Avoid stretching, compressing, arbitrary letter-spacing changes, cropping the descender, placing the dark app square behind the web signature, or introducing another R before the signature. Ensure an embedded image has an accessible `alt="Reprism"`; decorative duplicates should have empty alt text.
+Three fold angles—30°, 42°, and 54°—were rendered with the complete wordmark. The middle option retains more of the counter than the strong fold while making the change in the upper face visible. The −22° axis creates a rising seam without competing with the R leg. These are project-specific visual choices, not universal ideal angles.
+
+The face gap was enlarged to 3.6 units so its nominal clearance exceeds 1px at the smallest intended header size. The symbol's cap height is aligned with the lettering rather than the source plane's unprojected top edge. A 6-unit R/e gap and −1-unit tracking provide an initial optical balance; both are named parameters.
+
+## Typography and surfaces
+
+The remaining `eprism` letters use outlined Manrope at weight 700. The R is the first letter; a second capital R or a boxed app icon is not placed before it. Typeface choice is documented rather than claimed as original lettering.
+
+| Variant        | Front face | Folded face | Type      |
+| -------------- | ---------- | ----------- | --------- |
+| Primary / dark | `#66E2A6`  | `#91EDBF`   | `#F4F7F6` |
+| Light          | `#147A55`  | `#327E60`   | `#172129` |
+| Mono           | `#172129`  | `#172129`   | `#172129` |
+| Inverse        | `#F4F7F6`  | `#F4F7F6`   | `#F4F7F6` |
+
+Deliverables have transparent backgrounds and outlined production typography. The recommended full wordmark height is 32px; 28px and 40px are also reviewed. Reserve approximately half the cap height as external clearspace. Existing app icons and application navigation are outside this example.
+
+## Reproduce and inspect
+
+`design.json` is the authoritative parameter source. `brief.json` records intent and constraints. `scripts/generate_projection.py` performs the projection, clipping, Boolean operations, font outlining, and exports:
+
+- Production symbols and wordmarks in four palettes.
+- Source, projected-view, and construction SVGs.
+- `render-recipe.json`, a flattened recipe usable by the shared SVG renderer.
+- `geometry-evidence.json`, with the projection matrix, clearance, approximation tolerances, source hashes, and dimensions.
+- `reprism-resolved.json`, with the implemented geometry mappings. These statuses do not assert a validated audience response.
+
+To vary the fold or source dimensions, rerun the example builder using an edited design file or `--fold`; editing the flattened recipe's numeric metadata does not recompute its Boolean paths. Install the pinned build-time dependencies in `requirements.txt`. Source fonts and their license remain in `assets/fonts/`.
+
+The numerical tests verify the fixed axis, normal foreshortening, two valid faces, seam clearance, parameter effects, and byte-identical regeneration. The rendered preview shows the complete signature on dark/light surfaces and at header sizes.
+
+## Design references
+
+[Google's identity construction case](https://design.google/library/evolving-google-identity) informs geometry followed by optical review. [Pentagram's MIT Media Lab case](https://www.pentagram.com/work/mit-media-lab) informs common-source shape grammar. [IBM's logo guidance](https://www.ibm.com/design/language/ibm-logos/8-bar/) informs spacing and surface-aware review. [Linear's brand guidelines](https://linear.app/brand) inform compact-symbol versus wordmark use. These sources do not prescribe Reprism's particular shape or measurements.

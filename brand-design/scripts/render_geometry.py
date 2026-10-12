@@ -160,7 +160,7 @@ def render(brief, recipe, overrides=None):
         raise ValueError("Brief and recipe must be JSON objects.")
     if type(recipe.get("version")) is not int or recipe["version"] != 1:
         raise ValueError("Unsupported recipe version.")
-    allowed = {"version", "parameters", "view_box", "variants", "shapes", "guides", "rationale"}
+    allowed = {"version", "parameters", "view_box", "construction_view_box", "variants", "shapes", "guides", "rationale"}
     if set(recipe) - allowed:
         raise ValueError("Unsupported recipe field.")
     overrides = overrides or {}
@@ -184,6 +184,13 @@ def render(brief, recipe, overrides=None):
     bounds = [params.evaluate(value) for value in recipe["view_box"]]
     if len(bounds) != 4 or bounds[2] <= 0 or bounds[3] <= 0:
         raise ValueError("view_box must have four numbers and positive dimensions.")
+    guide_bounds = bounds
+    if "construction_view_box" in recipe:
+        if not isinstance(recipe["construction_view_box"], list):
+            raise ValueError("construction_view_box must be a list.")
+        guide_bounds = [params.evaluate(value) for value in recipe["construction_view_box"]]
+        if len(guide_bounds) != 4 or guide_bounds[2] <= 0 or guide_bounds[3] <= 0:
+            raise ValueError("construction_view_box must have four numbers and positive dimensions.")
     palettes = recipe["variants"]
     if not isinstance(palettes, dict) or not isinstance(recipe["shapes"], list):
         raise ValueError("variants must be an object and shapes must be a list.")
@@ -206,7 +213,7 @@ def render(brief, recipe, overrides=None):
 
     def svg(palette, guides=False):
         root = ET.Element("svg", {"xmlns": "http://www.w3.org/2000/svg",
-                                  "viewBox": " ".join(number(v) for v in bounds),
+                                  "viewBox": " ".join(number(v) for v in (guide_bounds if guides else bounds)),
                                   "role": "img", "aria-labelledby": "title desc"})
         ET.SubElement(root, "title", {"id": "title"}).text = name
         ET.SubElement(root, "desc", {"id": "desc"}).text = (

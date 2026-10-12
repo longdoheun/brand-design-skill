@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "direction": "Shared-axis projection",
+  "parameters": {
+    "unit": 6,
+    "source_cap": "12*unit",
+    "stroke": "2*unit",
+    "radius": "4*unit",
+    "counter_radius": "radius-stroke",
+    "axis_deg": -22,
+    "fold_deg": 42,
+    "seam": "0.6*unit",
+    "arc_segments": 256,
+    "simplify_tolerance": 0.008,
+    "output_cap": 72,
+    "padding": 2,
+    "type_weight": 700,
+    "word_gap": 6,
+    "tracking": -1
+  },
+  "variants": {
+    "primary": { "ink": "#66E2A6", "facet": "#91EDBF", "type": "#F4F7F6" },
+    "light": { "ink": "#147A55", "facet": "#327E60", "type": "#172129" },
+    "mono": { "ink": "#172129", "facet": "#172129", "type": "#172129" },
+    "inverse": { "ink": "#F4F7F6", "facet": "#F4F7F6", "type": "#F4F7F6" }
+  }
+}

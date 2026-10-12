@@ -75,6 +75,13 @@ class GeometryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             render(brief, recipe, {"unknown_axis": 10})
 
+    def test_construction_bounds_do_not_resize_production(self):
+        brief, recipe = fixture()
+        recipe["construction_view_box"] = [-5, -5, 60, 60]
+        files = render(brief, recipe)
+        self.assertEqual(ET.fromstring(files["test-orbit-construction.svg"]).attrib["viewBox"], "-5 -5 60 60")
+        self.assertEqual(ET.fromstring(files["test-orbit-symbol-primary.svg"]).attrib["viewBox"], "0 0 50 50")
+
     def test_unresolved_philosophy_is_not_hidden(self):
         import json
         brief, recipe = fixture()
