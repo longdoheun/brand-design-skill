@@ -54,7 +54,7 @@ def export_identity(design,brief,p,recipe,evidence,stages,output):
     # Remove its production inset to align the diagram with the baseline grid.
     symbol.set('transform','translate(0 0)')
     files['reprism-lettering.svg']=stage(ET.tostring(symbol,encoding='unicode')+glyph_content+guides+circles,'Shared stroke, circular bowls, x-height, baseline, and pair-specific spacing',maxx+10,maxy+10)
-    evidence.update({**type_evidence,"wordmark_height":maxy+2*pad,"cap_height":cap,
+    evidence.update({**type_evidence,"color_policy":design['color_policy'],"wordmark_height":maxy+2*pad,"cap_height":cap,
                      "design_sha256":sha256(json.dumps(design,sort_keys=True).encode()).hexdigest()})
     files["geometry-evidence.json"]=json.dumps(evidence,indent=2)+"\n"
     output.mkdir(parents=True,exist_ok=True)

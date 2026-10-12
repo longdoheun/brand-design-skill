@@ -57,7 +57,9 @@ Outputs include palette variants, a separate construction SVG, and a JSON manife
 
 ## Reprism: data-guided training support
 
-Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The complete name shares a geometric grammar: R/e/p bowls, a common construction stroke, linked lowercase proportions, and related r/m arches. Pair-specific spacing and disclosed optical corrections refine the result. The relationship remains visible in monochrome; construction guides stay out of the finished artwork.
+Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The [case study](examples/reprism/case-study.md#why-the-letters-have-different-colors) also documents why the primary signature uses an accent R and a neutral name, how colors are adapted for each surface, and when to use one color. These decisions are recorded in `design.json.color_policy`.
+
+The complete name shares a geometric grammar: R/e/p bowls, a common construction stroke, linked lowercase proportions, and related r/m arches. Pair-specific spacing and disclosed optical corrections refine the result. The relationship remains visible in monochrome; construction guides stay out of the finished artwork.
 
 ![Reprism data-guided training wordmark](examples/reprism/preview.png)
 

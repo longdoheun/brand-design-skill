@@ -11,6 +11,7 @@ The user can provide a few sentences. Normalize them into these fields; do not d
 | `preserve`, `avoid`     | Existing identity invariants and unwanted motifs or treatments.                                                                                    |
 | `applications`          | Placement, surface, and intended pixel or print size.                                                                                              |
 | `palette`, `typography` | Agreed values or preferences; leave unspecified until chosen.                                                                                      |
+| `color_policy`         | Palette source, single/multicolor strategy, element roles, selection reasons, intended backgrounds, and monochrome usage.                            |
 | `assumptions`           | Inferred decisions awaiting actual visual assessment, not invented approvals.                                                                      |
 
 Keep immutable requirements separate from the design's adjustable parameters. A rule such as “all derived forms come from one curve” constrains the source model; a preference such as “slightly softer” guides optical exploration. Do not reduce philosophies to a universal table that always maps “trust” to circles or “progress” to arrows.
@@ -20,6 +21,12 @@ Keep immutable requirements separate from the design's adjustable parameters. A 
 For each philosophy, record a proposed operation, named parameters, expected perceptual result, and a check. Mark the mapping `implemented` or `pending`. An implemented geometric operation still needs visual review; it does not prove the audience reads the intended meaning.
 
 Example: “multiple viewpoints of one process” might produce transformed views of a shared source shape. The check is that both shapes actually derive from the same parameters, followed by visual assessment of whether their combined counter remains legible. If the logo is still a single unrelated shape, this mapping stays pending.
+
+## Color policy
+
+After choosing colors, record the palette source and why each role is used. Link roles to elements and intended surfaces: an accent identifier, a neutral name, an optional internal tone, or another justified arrangement. State whether differences are intentional, which relationships survive monochrome, and when a single-color variant is preferable. Exact values alone do not explain the choice.
+
+A useful policy records `strategy`, `source`, `roles` (element and reason), `surfaces`, review criteria, and `monochrome` usage. Keep this rationale separate from executable palette values in the rendering recipe. Existing product colors are evidence to consider, not an instruction to reuse a color on every background without reviewing contrast. Quantitative review targets need a named method and scope; they do not establish aesthetic quality or universal color symbolism.
 
 ## Example request
 

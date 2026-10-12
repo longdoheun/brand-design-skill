@@ -74,7 +74,44 @@
       72.0
     ]
   },
+  "color_policy": {
+    "strategy": "Accent symbol plus a neutral continuous name; intentional, not mandatory for every placement.",
+    "source": "Existing Reprism app accent, foreground and background tokens; light-surface colors are adapted variants.",
+    "roles": {
+      "ink": {
+        "element": "R reference frame",
+        "reason": "Connect the initial used as a standalone identifier with the existing product accent. Keep the anchor recognizable within the complete name."
+      },
+      "record": {
+        "element": "Internal R trace",
+        "reason": "A tonal variation within the accent family distinguishes the inner curve gently. Its gap and geometry carry the relationship in monochrome."
+      },
+      "type": {
+        "element": "All of eprism, together",
+        "reason": "Use one neutral foreground to keep the full name readable and visually calm beside the accent symbol. Do not color individual letters separately."
+      }
+    },
+    "surfaces": {
+      "primary": "#0B0E12",
+      "light": "#F4F7F6",
+      "mono": "#F4F7F6",
+      "inverse": "#0B0E12"
+    },
+    "review": {
+      "foreground_background_ratio_target": 4.5,
+      "target_status": "Project-specific design review target, not a claim that all logos must meet WCAG text thresholds.",
+      "method": "W3C relative luminance and (Lighter + 0.05) / (Darker + 0.05); nominal solid colors, not antialiased edge pixels.",
+      "source": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "checks": [
+        "Whole-name readability at intended sizes",
+        "Consistent element roles across dark and light variants",
+        "Recognition in monochrome without hue-dependent meaning"
+      ]
+    },
+    "monochrome": "Use one foreground for R, its trace, and eprism when a quiet signature or one-ink reproduction is preferable.",
+    "boundary": "Accent versus neutral is visual hierarchy, not an assertion that R has greater conceptual importance or that green proves scientific credibility."
+  },
   "wordmark_height": 100.0,
   "cap_height": 72.0,
-  "design_sha256": "5e65ddedf34b802c975f703d7859a1f4a23f9ef4a62e75fbeab6f9a9706c059e"
+  "design_sha256": "8a0e5ef5e478916ba35fb8b9feaaa2eb07aa19a0f476f586b0abba48f8e31736"
 }

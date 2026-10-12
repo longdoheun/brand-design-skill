@@ -24,6 +24,12 @@ Distinguish the brand's benefit to its user from its delivery mechanisms. Priori
 5. Inspect the silhouette in one color first. Check counters, joins, diagonal weight, alignment, and spacing at actual intended sizes. Keep optical corrections as named parameters with a reason. Do not silently violate hard constraints. An attractive diagram does not demonstrate a usable logo.
 6. Design the complete signature, not a first-letter symbol in isolation. Compare the symbol with every letter's stroke, curve, counter, x-height, terminals, and spacing, then check the whole name within the product's visual language. Share a small grammar where it improves coherence; do not mechanically repeat the symbol's special detail in every glyph. Create wordmarks using licensed typefaces or original lettering; choose them from the brief rather than a bundled example. Deliver production SVGs with outlined type and no external resources. The generic renderer makes symbols and construction assets; wordmark layout and font outlining require a separate appropriate tool.
 
+## Color decisions
+
+Record why each color exists, not just its hexadecimal value. Start from the established product palette or the brief's context, choose a strategy (one color, accent plus neutral, or a justified multicolor system), and map each role to an element, source, intended hierarchy, and actual background. A symbol and name may share or differ in color; neither split lettering nor a colored initial is the default. If splitting them, explain what that distinction accomplishes and verify that the name still reads as one signature. Do not assign different colors to letters merely to decorate them or treat a hue as universal evidence of trust, health, or scientific rigor.
+
+Keep palette roles consistent across variants. Check foreground/background contrast on the named surfaces and at the intended size; record the chosen review target separately from any applicable accessibility requirement. Inspect the monochrome variant so recognition and meaning do not depend on hue. Construction-guide colors are explanatory overlays, not additional brand colors. Read the [brief contract](references/brief-contract.md#color-policy) when recording these decisions.
+
 ## Output and verification
 
 Save the normalized brief, source recipe/generator, resolved parameters and rationale, production assets, and a real rendered preview. Use only the requested formats and variants. Construction guides belong in a separate file, not in the finished signature.

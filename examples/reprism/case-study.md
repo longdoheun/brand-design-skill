@@ -81,6 +81,24 @@ The signature preserves the application's mint (`#66E2A6`), warm white (`#F4F7F6
 
 The benefit remains exercise assistance informed by evidence. The 3D renderer and motion tracker support that benefit; neither becomes the sole meaning of the brand. All production SVGs are transparent, outlined, and self-contained.
 
+## Why the letters have different colors
+
+The primary signature deliberately pairs an accent R with a neutral `eprism`. This is a hierarchy choice, not an implication that the remaining letters matter less or that a scientific product must use green. The construction still treats the complete name as one form.
+
+| Role | Element | Color selection reason |
+| --- | --- | --- |
+| `ink` | Outer R | Reuse the established app accent, linking the initial's standalone identity with the full wordmark |
+| `record` | Inner R curve | Use a lighter member of the accent family for a gentle internal distinction; the actual geometry and gap retain the relationship in one color |
+| `type` | All six letters of eprism | Use the existing neutral foreground for continuous name reading and a calm balance with the accent; do not assign individual letters separate colors |
+
+The dark signature uses mint and warm white on `#0B0E12`. The light signature adapts the accent to darker greens and uses the existing dark neutral on `#F4F7F6`; the pale dark-mode mint is not reused indiscriminately on a light surface. Monochrome signatures give R, its curve, and the name the same color. Use them when a quiet signature or one-ink output is more appropriate. The accent/neutral split is an available expression of the identity, not a mandatory construction rule.
+
+`design.json.color_policy` records the strategy, source, role assignments, reasons, backgrounds, and checks; `variants` supplies the actual production colors. The renderer executes those choices and does not autonomously infer a palette from the brand philosophy. The exported evidence includes the policy so a later revision can audit the choice.
+
+The project's nominal foreground/background review target is 4.5:1. Current roles range from 11.97:1 to 17.94:1 on the dark surface, and 4.54:1 to 15.15:1 on the light surface. These rounded measurements use the [W3C contrast method](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html); W3C exempts logotypes from its ordinary text threshold, so this is a deliberate design target, not a blanket compliance claim. Small-size rendering and name cohesion still require visual review. These ratios measure each foreground against its background, not a required separation between the mint and white letters.
+
+Blue lines in the construction diagram are explanatory guides and are not part of the production brand palette.
+
 ## Surfaces
 
 | Surface | Reference | Record    | Type      |
