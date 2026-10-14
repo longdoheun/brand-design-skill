@@ -1,6 +1,6 @@
 # Reprism — reference, record, refine
 
-Reprism supports exercise decisions through measured movement, accumulated records, and interpretable statistical feedback. Tracking and 3D replay are tools for that purpose. This proposed signature expresses **a stable reference supporting a record that can be compared and refined**.
+Reprism supports exercise decisions through measured movement, accumulated records, and interpretable statistical feedback. Tracking and 3D replay are tools for that purpose. The signature expresses **a stable reference supporting a record that can be compared and refined**.
 
 The numerical observations are illustrative normalized design values. They are not user records, exercise prescriptions, or evidence of training effectiveness. The geometry implements a brand metaphor; audience interpretation still needs visual judgment.
 
@@ -62,14 +62,14 @@ The complete `Reprism` signature uses original geometric lettering. It is not a 
 
 | Relationship | Construction | Purpose |
 | --- | --- | --- |
-| R → e → p | The same 27-unit circular bowl and 18-unit inner radius; p repeats the R's D-shaped bowl | Carry recognition across the name rather than isolating it in the initial |
+| R → e → p | The same 27-unit circular bowl and 18-unit inner radius; p carries the shared circular bowl on a continuous upright | Carry recognition across the name rather than isolating it in the initial |
 | All letters | A 9-unit construction stroke | A consistent visual weight |
 | Lowercase height | `x-height = 2 × bowl radius = 54` against a 72-unit capital | Relate the lowercase proportions to the symbol's real circle |
 | r → m | 18-unit outer arches, with 9-unit counters | Extend the curve grammar without forcing every letter into a full circle |
 | i | A 9-unit stem and circular 9-unit dot | Keep small forms on the same dimensional system |
 | s | Tangent-continuous cubic transitions and a width of 49 units | Preserve a readable letter where a literal circle recipe would become awkward |
 | Optical fit | 0.75-unit overshoot for e and s; width/height fitting of s and vertical fitting of e | Match the perceived baseline and height of curved and flat forms |
-| Spacing | Re/pr: 6 units; ep/ri/is/sm: 5 units, all expressed relative to the base unit | Balance each adjacent pair rather than apply uniform tracking |
+| Spacing | Re: 5.25 units; pr: 6 units; ep/ri/is/sm: 5 units, all expressed relative to the base unit | Balance each adjacent pair rather than apply uniform tracking |
 
 The construction stroke is shared; optical fitting slightly changes the final weights of e and s. These adjustments are disclosed rather than described as perfectly uniform geometry. The p extends 24 units below the baseline. The i dot ends 9 units above the lowercase stems.
 
@@ -77,38 +77,30 @@ The statistical trace remains distinctive to R. Repeating it in every letter wou
 
 ## Relationship to the product
 
-The signature preserves the application's mint (`#66E2A6`), warm white (`#F4F7F6`), and dark (`#0B0E12`) palette. Its restrained geometric forms support an interface containing anatomical models, exercise controls, and quantitative records. The logo establishes identity while the model and workout information remain the main content. This is a proposed identity relationship; the preview uses the application's colors but does not constitute integration or a usability study.
+The signature preserves the application's mint (`#66E2A6`), warm white (`#F4F7F6`), and dark (`#0B0E12`) palette. Its restrained geometric forms support an interface containing anatomical models, exercise controls, and quantitative records. The logo establishes identity while the model and workout information remain the main content. The identity is applied in the companion Reprism application. The asset preview does not constitute a usability study.
 
 The benefit remains exercise assistance informed by evidence. The 3D renderer and motion tracker support that benefit; neither becomes the sole meaning of the brand. All production SVGs are transparent, outlined, and self-contained.
 
-## Why the letters have different colors
+## Production color strategy
 
-The primary signature deliberately pairs an accent R with a neutral `eprism`. This is a hierarchy choice, not an implication that the remaining letters matter less or that a scientific product must use green. The construction still treats the complete name as one form.
+The production signature uses one foreground across R, its record trace, and all of `eprism`. The earlier accent-R/neutral-name study separated the initial visually; the production revision makes the complete name one identifier at compact header sizes. This is a deliberate design choice, not a claim that every brand must use one color.
 
-| Role | Element | Color selection reason |
+| Surface | Reference, record, and lettering | Reason |
 | --- | --- | --- |
-| `ink` | Outer R | Reuse the established app accent, linking the initial's standalone identity with the full wordmark |
-| `record` | Inner R curve | Use a lighter member of the accent family for a gentle internal distinction; the actual geometry and gap retain the relationship in one color |
-| `type` | All six letters of eprism | Use the existing neutral foreground for continuous name reading and a calm balance with the accent; do not assign individual letters separate colors |
+| Dark `#0B0E12` | `#66E2A6` | Reuse the product's established mint across the complete name |
+| Light `#F4F7F6` | `#147A55` | Adapt the foreground for contrast instead of carrying pale mint onto a light surface |
+| One-ink reproduction | `#172129` | Keep the structure recognizable without color variation |
+| Inverse | `#F4F7F6` | Provide a quiet neutral signature on dark surfaces |
 
-The dark signature uses mint and warm white on `#0B0E12`. The light signature adapts the accent to darker greens and uses the existing dark neutral on `#F4F7F6`; the pale dark-mode mint is not reused indiscriminately on a light surface. Monochrome signatures give R, its curve, and the name the same color. Use them when a quiet signature or one-ink output is more appropriate. The accent/neutral split is an available expression of the identity, not a mandatory construction rule.
+The internal record remains distinct through its actual negative-space lane, rather than a second tint. `design.json.color_policy` records the palette source, roles, reasons, surfaces, and review criteria; `variants` provides executable production colors. Green is selected from the existing product palette, not as universal evidence of scientific rigor.
 
-`design.json.color_policy` records the strategy, source, role assignments, reasons, backgrounds, and checks; `variants` supplies the actual production colors. The renderer executes those choices and does not autonomously infer a palette from the brand philosophy. The exported evidence includes the policy so a later revision can audit the choice.
+The project's foreground/background design target is 4.5:1; mint on the selected dark surface measures approximately 11.97:1, and dark green on the selected light surface 4.94:1. These are nominal solid-color measurements using the [W3C contrast method](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html), not proof of aesthetic quality or a blanket accessibility certification. W3C exempts logotypes from ordinary text thresholds. Blue guides and white lettering in construction overlays are explanatory and do not add production palette roles.
 
-The project's nominal foreground/background review target is 4.5:1. Current roles range from 11.97:1 to 17.94:1 on the dark surface, and 4.54:1 to 15.15:1 on the light surface. These rounded measurements use the [W3C contrast method](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html); W3C exempts logotypes from its ordinary text threshold, so this is a deliberate design target, not a blanket compliance claim. Small-size rendering and name cohesion still require visual review. These ratios measure each foreground against its background, not a required separation between the mint and white letters.
+## Applied revision
 
-Blue lines in the construction diagram are explanatory guides and are not part of the production brand palette.
+The R's leg endpoint moves from 63 to 54 units; its angle follows the actual endpoints, making the capital less wide relative to the lowercase bowls. The p uses a circular counter, preserving the shared radius while making the lowercase form less rigid. The first pair's clear gap is 5.25 units; the other pair-specific gaps remain unchanged.
 
-## Surfaces
-
-| Surface | Reference | Record    | Type      |
-| ------- | --------- | --------- | --------- |
-| Dark    | `#66E2A6` | `#91EDBF` | `#F4F7F6` |
-| Light   | `#147A55` | `#327E60` | `#172129` |
-| Mono    | `#172129` | `#172129` | `#172129` |
-| Inverse | `#F4F7F6` | `#F4F7F6` | `#F4F7F6` |
-
-These colors and ratios belong to this brand example, not the generic skill. Existing app icons and application navigation are separate integration work.
+The application uses the full signature in its header, authentication screens, and launch splash. The installed icon and favicon use the same R, centered on a flat dark square. Icon artwork fits inside the central maskable-safe region; raster outputs are opaque PNGs at 192, 512, and 180 pixels. Small screens keep the wordmark visible while navigation moves to its own row. This revision is intended for application use; the earlier studies remain available in repository history.
 
 ## Reproduction
 

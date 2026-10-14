@@ -20,7 +20,7 @@
   "connected_components": 1,
   "counter_count": 2,
   "export_tolerance_units": 0.006,
-  "leg_angle_deg": 32.005383208083494,
+  "leg_angle_deg": 39.80557109226519,
   "lettering": "Original geometric lettering; no runtime font",
   "stroke_note": "Shared construction stroke; e has vertical and s has width/height optical fitting.",
   "x_height": 54.0,
@@ -29,7 +29,7 @@
   "arch_radius": 18.0,
   "optical_overshoot": 0.75,
   "pair_gaps": {
-    "Re": 6.0,
+    "Re": 5.25,
     "ep": 5.0,
     "pr": 6.0,
     "ri": 5.0,
@@ -38,57 +38,57 @@
   },
   "glyph_bounds": {
     "e": [
-      71.38860950645613,
+      62.13444407493199,
       17.253714673009664,
-      125.38499523001431,
+      116.13082979849017,
       72.75
     ],
     "p": [
-      130.3849952300143,
+      121.13082979849017,
       18.0,
-      184.3849952300143,
+      175.13082979849017,
       96.0
     ],
     "r": [
-      190.3849952300143,
+      181.13082979849017,
       18.0,
-      226.3849952300143,
+      217.13082979849017,
       72.0
     ],
     "i": [
-      231.3849952300143,
+      222.13082979849017,
       0.0,
-      240.3849952300143,
+      231.13082979849017,
       72.0
     ],
     "s": [
-      245.3849952300143,
+      236.13082979849017,
       17.254624972538018,
-      294.3849952300143,
+      285.13082979849014,
       72.74979509073822
     ],
     "m": [
-      299.3849952300143,
+      290.13082979849014,
       18.0,
-      362.3849952300143,
+      353.13082979849014,
       72.0
     ]
   },
   "color_policy": {
-    "strategy": "Accent symbol plus a neutral continuous name; intentional, not mandatory for every placement.",
+    "strategy": "One foreground across the complete name and record trace; surface-adapted monochrome production signature.",
     "source": "Existing Reprism app accent, foreground and background tokens; light-surface colors are adapted variants.",
     "roles": {
       "ink": {
         "element": "R reference frame",
-        "reason": "Connect the initial used as a standalone identifier with the existing product accent. Keep the anchor recognizable within the complete name."
+        "reason": "Use the existing product accent across the complete signature so R and the name read as one identity."
       },
       "record": {
         "element": "Internal R trace",
-        "reason": "A tonal variation within the accent family distinguishes the inner curve gently. Its gap and geometry carry the relationship in monochrome."
+        "reason": "Keep the record in the same foreground as the frame; its real negative-space lane distinguishes it without a second tone."
       },
       "type": {
         "element": "All of eprism, together",
-        "reason": "Use one neutral foreground to keep the full name readable and visually calm beside the accent symbol. Do not color individual letters separately."
+        "reason": "Use the same foreground as R for all six letters; continuous shape and color bind the complete name at compact header sizes."
       }
     },
     "surfaces": {
@@ -108,10 +108,10 @@
         "Recognition in monochrome without hue-dependent meaning"
       ]
     },
-    "monochrome": "Use one foreground for R, its trace, and eprism when a quiet signature or one-ink reproduction is preferable.",
-    "boundary": "Accent versus neutral is visual hierarchy, not an assertion that R has greater conceptual importance or that green proves scientific credibility."
+    "monochrome": "The production strategy is monochrome: mint on dark, dark green on light, ink for one-color print, or warm white in inverse use.",
+    "boundary": "The palette comes from the product, not a universal association between green and scientific credibility."
   },
   "wordmark_height": 100.0,
   "cap_height": 72.0,
-  "design_sha256": "8a0e5ef5e478916ba35fb8b9feaaa2eb07aa19a0f476f586b0abba48f8e31736"
+  "design_sha256": "a847878f14fb6f84c0eff1c8954a1e49f00579b45172f4f5d7529d442992f0f2"
 }

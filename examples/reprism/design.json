@@ -1,13 +1,13 @@
 {
-  "version": 5,
-  "direction": "Reference, record, refine — one letterform system",
+  "version": 6,
+  "direction": "Reference, record, refine — a unified production signature",
   "parameters": {
     "unit": 3,
     "source_cap": "24*unit",
     "stroke": "3*unit",
     "radius": "9*unit",
     "counter_radius": "radius-stroke",
-    "leg_tip_x": "21*unit",
+    "leg_tip_x": "18*unit",
     "record_stroke": "4*unit/3",
     "minimum_lane_gap": "4*unit/3",
     "target_radius": "counter_radius-minimum_lane_gap-record_stroke/2",
@@ -31,13 +31,13 @@
   "variants": {
     "primary": {
       "ink": "#66E2A6",
-      "record": "#91EDBF",
-      "type": "#F4F7F6"
+      "record": "#66E2A6",
+      "type": "#66E2A6"
     },
     "light": {
       "ink": "#147A55",
-      "record": "#327E60",
-      "type": "#172129"
+      "record": "#147A55",
+      "type": "#147A55"
     },
     "mono": {
       "ink": "#172129",
@@ -51,7 +51,7 @@
     }
   },
   "pair_gaps": {
-    "Re": "2*unit",
+    "Re": "7*unit/4",
     "ep": "5*unit/3",
     "pr": "2*unit",
     "ri": "5*unit/3",
@@ -59,20 +59,20 @@
     "sm": "5*unit/3"
   },
   "color_policy": {
-    "strategy": "Accent symbol plus a neutral continuous name; intentional, not mandatory for every placement.",
+    "strategy": "One foreground across the complete name and record trace; surface-adapted monochrome production signature.",
     "source": "Existing Reprism app accent, foreground and background tokens; light-surface colors are adapted variants.",
     "roles": {
       "ink": {
         "element": "R reference frame",
-        "reason": "Connect the initial used as a standalone identifier with the existing product accent. Keep the anchor recognizable within the complete name."
+        "reason": "Use the existing product accent across the complete signature so R and the name read as one identity."
       },
       "record": {
         "element": "Internal R trace",
-        "reason": "A tonal variation within the accent family distinguishes the inner curve gently. Its gap and geometry carry the relationship in monochrome."
+        "reason": "Keep the record in the same foreground as the frame; its real negative-space lane distinguishes it without a second tone."
       },
       "type": {
         "element": "All of eprism, together",
-        "reason": "Use one neutral foreground to keep the full name readable and visually calm beside the accent symbol. Do not color individual letters separately."
+        "reason": "Use the same foreground as R for all six letters; continuous shape and color bind the complete name at compact header sizes."
       }
     },
     "surfaces": {
@@ -92,7 +92,7 @@
         "Recognition in monochrome without hue-dependent meaning"
       ]
     },
-    "monochrome": "Use one foreground for R, its trace, and eprism when a quiet signature or one-ink reproduction is preferable.",
-    "boundary": "Accent versus neutral is visual hierarchy, not an assertion that R has greater conceptual importance or that green proves scientific credibility."
+    "monochrome": "The production strategy is monochrome: mint on dark, dark green on light, ink for one-color print, or warm white in inverse use.",
+    "boundary": "The palette comes from the product, not a universal association between green and scientific credibility."
   }
 }

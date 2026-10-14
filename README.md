@@ -57,7 +57,7 @@ Outputs include palette variants, a separate construction SVG, and a JSON manife
 
 ## Reprism: data-guided training support
 
-Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The [case study](examples/reprism/case-study.md#why-the-letters-have-different-colors) also documents why the primary signature uses an accent R and a neutral name, how colors are adapted for each surface, and when to use one color. These decisions are recorded in `design.json.color_policy`.
+Reprism is a worked example of an exercise assistant built around measured movement, accumulated records, and statistical feedback. A fixed outer R provides the reference frame. Its inner trace is constructed from an exponential moving average of illustrative observations and positioned relative to a target curve. The [case study](examples/reprism/case-study.md#production-color-strategy) also documents why the production signature uses one foreground across the full name and how that foreground adapts to each surface. These decisions are recorded in `design.json.color_policy`.
 
 The complete name shares a geometric grammar: R/e/p bowls, a common construction stroke, linked lowercase proportions, and related r/m arches. Pair-specific spacing and disclosed optical corrections refine the result. The relationship remains visible in monochrome; construction guides stay out of the finished artwork.
 
@@ -90,7 +90,7 @@ The Reprism example also includes geometry checks for its reference stability, s
 .venv/bin/python -m unittest discover -s examples/reprism/scripts -p 'test_*.py'
 ```
 
-These checks verify construction properties; they do not establish how an audience interprets the logo. The example is a proposed identity asset, not an application deployment.
+These checks verify construction properties; they do not establish how an audience interprets the logo. The companion application integrates these assets; this repository contains the design source rather than deployment tooling.
 
 ## References and archived font attribution
 

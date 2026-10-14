@@ -85,8 +85,8 @@ class CalibrationTests(unittest.TestCase):
         # The p bowl repeats the R's dimensions at the lowercase centre.
         self.assertAlmostEqual(letters['p'].bounds[2],2*p['radius'])
         counter=letters['p'].interiors[0]
-        self.assertAlmostEqual(counter.bounds[2],2*p['radius']-p['stroke'])
-        self.assertAlmostEqual(counter.bounds[0],p['stroke'])
+        self.assertAlmostEqual(counter.bounds[2],2*p['radius']-p['stroke'],delta=p['simplify_tolerance'])
+        self.assertAlmostEqual(counter.bounds[0],p['stroke'],delta=p['simplify_tolerance'])
         self.assertAlmostEqual(letters['p'].bounds[3],p['source_cap']+p['descender'])
 
     def test_whole_wordmark_spacing_and_scaling(self):

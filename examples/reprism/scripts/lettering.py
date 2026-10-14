@@ -27,11 +27,9 @@ def glyphs(p):
     aperture=Polygon([(r,mid),(3*r,mid),(3*r,mid+1.25*w),(r,mid+1.25*w)])
     e=ring.difference(aperture).union(box(w/2,mid-w/2,2*r,mid+w/2))
     e=scale(e,xfact=1,yfact=(h+2*over)/h,origin=(r,mid))
-    # p repeats the R's D-shaped bowl exactly, translated to the x-height.
-    p_bowl=ring.union(box(0,top,r,cap)).difference(box(w,top+w,r,cap-w))
-    # The ring's left half is inside this box; the explicit counter keeps its
-    # left edge square, so the lower-case bowl and the R share a D construction.
-    letter_p=p_bowl.union(box(0,top,w,cap+p['descender']))
+    # The p repeats the circular module with a rounded counter. Its upright
+    # carries the bowl without turning the lowercase form into a miniature D.
+    letter_p=ring.union(box(0,top,w,cap+p['descender']))
     def arch(cx):
         angles=[math.pi+i*math.pi/192 for i in range(193)]
         outer=[(cx+a*math.cos(t),top+a+a*math.sin(t)) for t in angles]

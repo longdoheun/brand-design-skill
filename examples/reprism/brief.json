@@ -45,6 +45,11 @@
       "id": "whole-signature",
       "statement": "Design R and eprism as one signature: related strokes, bowls, proportions and optical spacing within the application palette.",
       "strength": "hard"
+    },
+    {
+      "id": "continuous-color",
+      "statement": "Use one foreground across R and eprism in the production signature; preserve readability on the selected surface.",
+      "strength": "hard"
     }
   ],
   "preserve": [
